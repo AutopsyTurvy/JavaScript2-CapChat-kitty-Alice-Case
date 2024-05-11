@@ -1,8 +1,11 @@
 
 
 
-
-
+.add-thoughts-bar-container {
+    margin: 2em;
+    margin-bottom: 0;
+    border-bottom: 2px solid #422711;
+}
 
 .form-container {
     margin: 20px auto;
@@ -10,7 +13,9 @@
     padding: 20px;
     border: 1px solid #422711;
     border-radius: 5px;
+    font-family: "Poppins", sans-serif;
 }
+
 .input-group {
     margin-bottom: 10px;
 }
@@ -21,9 +26,12 @@ input[type="text"], textarea {
     margin: 5px 0;
     display: inline-block;
     border: 1px solid #422711;
-    border-radius: 4px;
+    border-radius: 20px;
     box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    align-content: center;
 }
+
 button {
     width: 100%;
     background-color: #422711;
@@ -33,7 +41,30 @@ button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-family: "Poppins", sans-serif;
 }
+
 button:hover {
     background-color: #955627;
+}
+
+
+
+/* main feed styles */
+
+
+
+.feed-page-container {
+    display: flex;
+    width: 100%;
+}
+
+.large-screen-nav-bar {
+    flex: 1;
+    border-right: 2px solid #422711;
+}
+
+.main-feed-container {
+    flex: 4;
+    height: 75vh;
 }
