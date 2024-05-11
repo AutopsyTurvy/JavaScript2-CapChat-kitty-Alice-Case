@@ -1,0 +1,39 @@
+
+
+
+
+
+
+.form-container {
+    margin: 20px auto;
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #422711;
+    border-radius: 5px;
+}
+.input-group {
+    margin-bottom: 10px;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #422711;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+button {
+    width: 100%;
+    background-color: #422711;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #955627;
+}

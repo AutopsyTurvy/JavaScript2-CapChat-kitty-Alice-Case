@@ -4,15 +4,115 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+
+
     <link rel="stylesheet" href="/styles/stylesGeneral.css">
     <link rel="stylesheet" href="/styles/stylesLogin.css">
+
+    <script defer src="script/loginscript.js"></script>
 
     <title>CapChat Login</title>
 
 </head>
 <body>
-    
-<div class="login-container"> </div>
+
+
+<div class="logo-container">
+    <div class="logo-image">
+        <img src="/Images/resized-images/capChatLogo.png" alt="CapChat Logo">
+    </div>
+</div>
+
+<h1 class="login-capchat-header">CapChat</h1>
+
+
+
+
+
+
+
+
+<div class="login-container">
+        <div class="login-border-container">
+            <div class="login-container-contents">
+
+                <div class="login-header">
+                    <h2 class="text-white">Login with Email:</h2>
+                    <p class="text-white">Please ensure your email and password are entered correctly before proceeding.</p>
+                </div>
+
+
+                
+                
+                <div class="form-container">
+                    <form action="/pages/feedPage.html" method="POST">
+
+
+                        <div class="input-group">
+                            <label class="input-label" for="email">Email:</label>
+                            <input type="email" id="email" name="email" required placeholder="Your email:">
+                        </div>
+
+                            <div id="email-error"></div>
+
+
+                        <div class="input-group">
+                            <label class="input-label" for="password">Password:</label>
+                            <input type="password" id="password" name="password" required placeholder="Your password:">
+                        </div>
+
+                            <div id="password-error"></div>
+                        
+                        <div class="login-button-positioning">
+                        <button class="login-button-styles" type="submit">Create Account</button>
+                        </div>
+
+                    </form>
+                </div>
+                
+
+
+                <div class="">
+                    <hr class="dividers">
+                    <p>or</p>
+                    <hr class="dividers">
+                </div>
+
+                <div class="">
+                    <p>Already have an account?</p>
+                    <p>(To Homepage)</p>
+                </div>
+
+                <div class="login-button-positioning">
+                    <!-- <button class="login-button-styles">Sign In</button> -->
+
+                    <a class="login-button-styles" href="pages/feedPage.html" class="">Sign In</a>
+                </div>
+            </div>
+        </div>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="login-background-images-container">
+    <div class="login-background-images">
+        <img src="/Images/resized-images/butterTrunk.jpg" alt="Pale cream mushrooms on the mossy trunk of a tree">
+        <img src="/Images/resized-images/redBlueMushrooms.jpg" alt="Luminous red mushrooms on blue/ purple tinted tree bark">
+        <img src="/Images/resized-images/flyagaricBrightCenter.jpg" alt="Red spotted mushroom in grass">
+        <img src="/Images/resized-images/gilledRain.jpg" alt="Brown mushrooms in twinkling rain">
+
+    </div>
+</div>
 
 
 
