@@ -8,12 +8,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
 
     <link rel="stylesheet" href="/styles/stylesGeneral.css">
     <link rel="stylesheet" href="/styles/stylesFeedPage.css">
 
     <script defer src="/script/feedPageScript.js"></script>
+
+    <!-- <script defer src="/script/apiBaseFetch.js"></script> -->
+
+    <script defer src="/script/registerForAPI.js"></script>
 
     <title>CapChat Home</title>
 
@@ -23,17 +28,17 @@
 <div class="add-thoughts-bar-container">
     <div class="add-thoughts-bar">
 
-
         <div class="thoughts-form-container">
-            <form id="thoughtsForm">
-                <div class="input-group">
-                    <label class="add-your-thoughts-title" for="thought">Add your thoughts:</label>
-                    <textarea id="thought" name="thought" placeholder="What's on your mind?" required></textarea>
-                </div>
-                <button type="submit">Submit A Thought!</button>
-            </form>
-        </div>
 
+            <form id="thoughtsForm">
+                <div class="add-thoughts-input-group">
+                    <label class="add-your-thoughts-title" for="thought"><h1>Add your thoughts:</h1></label>
+                    <textarea id="thought" name="thought" placeholder="What's on your mind?" required></textarea>
+                    <button class="submit-a-thought-header-button" type="submit">Submit A Thought!</button>
+                </div>
+            </form>
+
+        </div>
 
     </div>
 </div>
@@ -42,9 +47,159 @@
 
 <div class="feed-page-container">
 
-<div class="large-screen-nav-bar feed-page-main"></div>
-<div class="main-feed-container feed-page-main"></div>
+    <div class="large-screen-nav-bar">
+        <div class="logo-container">
+            <div class="feed-page-logo">
+                <img src="/Images/resized-images/capChatLogo.png" alt="CapChat Logo">
+            </div>
+            <h2>Cap Chat</h2>
+            <div class="nav-links-container">
+                <div class="link-item">
+                    <i class="fa-solid fa-house" style="color: #553d00;"></i><a href="/pages/feedPage.html" class="large-nav-bar-links"> Home</a>
+                </div>
+                <div class="link-item">
+                    <i class="fa-solid fa-user" style="color: #553d00;"></i><a href="" class="large-nav-bar-links"> Profile</a>
+                </div>
+                <div class="link-item">
+                    <i class="fa-solid fa-pen-fancy" style="color: #553d00;"></i><a href="" class="large-nav-bar-links"> Add a thought</a>
+                </div>
+                <div class="link-item">
+                    <i class="fa-solid fa-magnifying-glass" style="color: #553d00;"></i><a href="/pages/feedPage.html" class="large-nav-bar-links"> Search</a>
+                </div>
+                <div class="link-item">
+                    <i class="fa-solid fa-earth-europe" style="color: #553d00;"></i><a href="/pages/feedPage.html" class="large-nav-bar-links"> Explore</a>
+                </div>
+                <div class="link-item">
+                    <i class="fa-solid fa-right-to-bracket" style="color: #553d00;"></i><a href="/index.html" class="large-nav-bar-links"> Log In</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
+
+
+<div class="main-feed-container">
+
+    <div class="card">
+        <div class="thumbnail">
+            <img src="/Images/resized-images/capChatLogo.png" alt="Thumbnail">
+        </div>
+        <div class="content">
+            <h1>This is what i'm thinking about: </h1>
+            <p>...stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff and then stuff stuff stuff stuff stuff stuff.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="thumbnail">
+            <img src="/Images/resized-images/capChatLogo.png" alt="Thumbnail">
+        </div>
+        <div class="content">
+            <h1>This is what i'm thinking about: </h1>
+            <p>...stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff and then stuff stuff stuff stuff stuff stuff.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="thumbnail">
+            <img src="/Images/resized-images/capChatLogo.png" alt="Thumbnail">
+        </div>
+        <div class="content">
+            <h1>This is what i'm thinking about: </h1>
+            <p>...stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff and then stuff stuff stuff stuff stuff stuff.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="thumbnail">
+            <img src="/Images/resized-images/capChatLogo.png" alt="Thumbnail">
+        </div>
+        <div class="content">
+            <h1>This is what i'm thinking about: </h1>
+            <p>...stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff and then stuff stuff stuff stuff stuff stuff.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="thumbnail">
+            <img src="/Images/resized-images/capChatLogo.png" alt="Thumbnail">
+        </div>
+        <div class="content">
+            <h1>This is what i'm thinking about: </h1>
+            <p>...stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff and then stuff stuff stuff stuff stuff stuff.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="thumbnail">
+            <img src="/Images/resized-images/capChatLogo.png" alt="Thumbnail">
+        </div>
+        <div class="content">
+            <h1>This is what i'm thinking about: </h1>
+            <p>...stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff and then stuff stuff stuff stuff stuff stuff.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="thumbnail">
+            <img src="/Images/resized-images/capChatLogo.png" alt="Thumbnail">
+        </div>
+        <div class="content">
+            <h1>This is what i'm thinking about: </h1>
+            <p>...stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff and then stuff stuff stuff stuff stuff stuff.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="thumbnail">
+            <img src="/Images/resized-images/capChatLogo.png" alt="Thumbnail">
+        </div>
+        <div class="content">
+            <h1>This is what i'm thinking about: </h1>
+            <p>...stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff and then stuff stuff stuff stuff stuff stuff.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="thumbnail">
+            <img src="/Images/resized-images/capChatLogo.png" alt="Thumbnail">
+        </div>
+        <div class="content">
+            <h1>This is what i'm thinking about: </h1>
+            <p>...stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff and then stuff stuff stuff stuff stuff stuff.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="thumbnail">
+            <img src="/Images/resized-images/capChatLogo.png" alt="Thumbnail">
+        </div>
+        <div class="content">
+            <h1>This is what i'm thinking about: </h1>
+            <p>...stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff and then stuff stuff stuff stuff stuff stuff.</p>
+        </div>
+    </div>
+
+    </div>
 </div>
+
+
+<footer class="footer-small-screen">
+    <div class="footer-links-container">
+        <div class="footer-link-item">
+            <a href="/index.html" class="large-nav-bar-links"><i class="fa-brands fa-facebook" style="color: #e1cdc2;"></i></a>
+        </div>
+        <div class="footer-link-item">
+            <a href="/index.html" class="large-nav-bar-links"><i class="fa-brands fa-twitter" style="color: #e1cdc2;"></i></a>
+        </div>
+        <div class="footer-link-item">
+            <a href="/index.html" class="large-nav-bar-links"><i class="fa-brands fa-instagram" style="color: #e1cdc2;"></i></a>
+        </div>
+        <div class="footer-link-item">
+            <a href="/index.html" class="large-nav-bar-links"><i class="fa-brands fa-tumblr" style="color: #e1cdc2;"></i></a>
+        </div>
+    </div>
+</footer>
+
 

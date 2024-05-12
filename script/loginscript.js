@@ -2,11 +2,7 @@
 
 
 
-// Error handling with form submission:
-
-
-
-
+// Login Form submission:
 
 
 document.addEventListener('DOMContentLoaded', function () {
