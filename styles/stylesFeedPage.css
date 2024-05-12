@@ -1,4 +1,12 @@
 
+/* Hamburger Menu*/
+
+.hamburger-menu-container {
+    background-color: #422711;
+    margin-top: auto;
+}
+
+
 label.add-your-thoughts-title {
    flex: 0 0 auto;
    margin-right: 10px;
@@ -257,6 +265,7 @@ p {
 
 .footer-small-screen {
     background-color: #422711;
+    margin-top: auto;
 }
 
 .footer-links-container {
@@ -278,5 +287,19 @@ p {
 
 .large-nav-bar-links:hover {
     opacity: 0.8;        
+}
+
+.content-wrap {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+}
+
+@media (max-width: 1000px) {
+
+    .logo-container, .feed-page-logo img, .feed-page-logo, .logo-container {
+        display: none;           
+    }
+
 }
 
