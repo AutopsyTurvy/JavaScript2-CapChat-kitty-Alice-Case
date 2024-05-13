@@ -78,7 +78,7 @@
 
 
 .nav-menu a:hover {
-    border: 2px solid #e1cdc2;
+    cursor: pointer;
 
 }
 

@@ -169,6 +169,7 @@ button:hover {
 
 .link-item a:hover {
 cursor: pointer;
+color: #955627;
 }
 
 .large-nav-bar-links {
