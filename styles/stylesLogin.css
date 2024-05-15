@@ -1,4 +1,6 @@
-
+body {
+    padding: 5em;
+}
 
 .logo-container {
     display: flex;
@@ -63,6 +65,7 @@
     align-self: center;
 }
 
+
 .login-header h2, p {
     display: flex;
     align-items: center;
@@ -80,6 +83,9 @@ font-style: normal;
 
 .input-group {
     margin-bottom: 1em;
+    max-height: 90px;
+    transition: max-height 0.5s;
+
     
 }
 
@@ -90,7 +96,7 @@ font-style: normal;
 
 }
 
-#password, #email {
+#password, #email, #name {
     width: 95%;
     padding: 1em;
     border-radius: 20px;
@@ -99,15 +105,16 @@ font-style: normal;
 
 .login-button-positioning {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
 }
 
 .login-button-styles {
+    flex-basis: 40%;
     color: white;
     background-color: #422711;
-    padding: 1.2em;
+    padding: 1.5em;
     border-radius: 30px;
     border: none;
     cursor: pointer;
@@ -116,12 +123,44 @@ font-style: normal;
     justify-content: center;  
     align-items: center;
     text-align: center;
-    font-weight: 800
+    font-weight: 800;
+    transition: background 0.5s;
+}
+
+
+
+.sign-in-button-on-sign-up-page, .sign-up-button-on-sign-in-page{
+    background: white;
+    color: #422711;  
+    padding: 1.2em;
+    flex-basis: 30%;
+    text-decoration: none;
+    transition: background 0.5s;
+    border-radius: 30px;
+    justify-content: center;  
+    align-items: center;
+    text-align: center;
+    width: auto;
+    display: flex;
+    
+} 
+
+.login-button-styles:hover, .sign-in-button-on-login-page:hover {
+    background-color: #955627;
+    color: white;
+    text-decoration: underline;
+}
+
+
+
+.login-button-styles {
+    margin: 0 auto;
 }
 
 .login-button-styles:hover {
     cursor: pointer;
     background-color: #955627;
+    color: white;
 }
 
 #email-error, #password-error {

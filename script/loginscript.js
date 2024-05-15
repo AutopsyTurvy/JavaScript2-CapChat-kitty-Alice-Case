@@ -1,32 +1,32 @@
 
 
 
+// General Form Validation 
 
-// Login Form submission:
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    const form = document.querySelector('form'); 
-    const email = document.getElementById('email');
+    const form = document.querySelector('form');
+    const name = document.getElementById('name');
     const password = document.getElementById('password');
-    const errorForEmail = document.getElementById('email-error');
+    const errorForName = document.getElementById('name-error');
     const errorForPassword = document.getElementById('password-error');
 
-    // This checks that the email (for school) is correct- should not accept otherwise
-    email.addEventListener('input', function () {
+
+    name.addEventListener('input', function () {
+        let words = name.value.split(/\s+/).map(word => {
+            return word.charAt(0).toUpperCase() + word.substring(1).toLowerCase();
+        });
+        name.value = words.join(' ');
+
         let messages = [];
-        let emailPattern = /.*@noroff\.no|.*@stud\.noroff\.no$/;
-
-        if (email.value === '' || email.value == null) {
-            messages.push('Email is required');
-        } else if (!emailPattern.test(email.value)) {
-            messages.push('Note- Email must be from "@noroff.no" or "@stud.noroff.no" only, please.');
+        if (name.value.trim() === '') {
+            messages.push("We'd like to get to know you and learn your name!");
         }
-
-        errorForEmail.innerText = messages.join(', ');
+        errorForName.innerText = messages.join(', ');
     });
 
-    // Checks password length for strength etc--
+  
     password.addEventListener('input', function () {
         let messages = [];
 
@@ -34,47 +34,38 @@ document.addEventListener('DOMContentLoaded', function () {
             messages.push('Password must be at least 8 characters long.');
         }
 
-        if (password.value.length >20) {
-            messages.push('Password must be less that twenty characters.')
+        if (password.value.length > 20) {
+            messages.push('Password must be less than twenty characters.');
         }
 
         if (password.value === 'password' || password.value === 'Password') {
-            messages.push('Your password cannot be "Password"- It will be guessed too easily!');
+            messages.push('Your password cannot be "Password" - It will be guessed too easily!');
         }
 
         errorForPassword.innerText = messages.join(', ');
     });
 
-
-
-    // Form submission to prevent default submission mechanics
+  
     form.addEventListener('submit', (e) => {
-        let emailMessages = [];
+        let nameMessages = [];
         let passwordMessages = [];
 
-
-
-        // This bit validates the email
-        let emailPattern = /.*@noroff\.no|.*@stud\.noroff\.no$/;
-        if (email.value === '' || email.value == null) {
-            emailMessages.push('Email is required');
-        } else if (!emailPattern.test(email.value)) {
-            emailMessages.push('Email must be from "@noroff.no" or "@stud.noroff.no" only, please.');
+        if (name.value.trim() === '') {
+            nameMessages.push("We'd like to get to know you and learn your name!");
         }
 
-        // And this validates the password and checks that it is eight characters or more
         if (password.value.length < 8) {
             passwordMessages.push('Password must be at least 8 characters long.');
         }
 
-        // And lastly- this prevents the submission of the form if there are any errors! Hurrah! 
-        if (emailMessages.length > 0 || passwordMessages.length > 0) {
+        if (nameMessages.length > 0 || passwordMessages.length > 0) {
             e.preventDefault();
-            errorForEmail.innerText = emailMessages.join(', ');
+            errorForName.innerText = nameMessages.join(', ');
             errorForPassword.innerText = passwordMessages.join(', ');
         } else {
-            errorForEmail.innerText = '';
+            errorForName.innerText = '';
             errorForPassword.innerText = '';
         }
     });
 });
+
