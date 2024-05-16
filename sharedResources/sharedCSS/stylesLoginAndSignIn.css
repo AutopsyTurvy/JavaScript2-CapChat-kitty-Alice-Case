@@ -1,0 +1,162 @@
+body {
+  padding: 5em;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+}
+
+.logo-image img {
+  max-height: 20vh;
+  margin-top: 1.8em;
+}
+
+.login-capchat-header {
+  display: flex;
+  justify-content: center;
+  color: #422711;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.login-background-images-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.login-background-images {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.login-background-images img {
+  flex-grow: 1;
+  width: 25%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+  filter: blur(7px) opacity(25%);
+}
+
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.login-border-container {
+  border: 3.5px solid #422711;
+  border-radius: 30px;
+  padding: 2em;
+}
+
+.login-container-contents {
+  align-items: center;
+  align-self: center;
+}
+
+.login-header h2, p {
+  display: flex;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+.login-header p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+
+
+
+
+
+.input-group {
+  margin-bottom: 1em;
+  max-height: 90px;
+  transition: max-height 0.5s;
+}
+
+.input-label {
+  margin-bottom: 0.5em;
+  display: block;
+  font-weight: 800;
+}
+
+#password, #email, #name, #passwordSignIn, #emailSignIn {
+  width: 95%;
+  padding: 1em;
+  border-radius: 20px;
+  border: 2px solid #422711;
+}
+
+.login-button-positioning {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.login-button-styles {
+  flex-basis: 40%;
+  color: white;
+  background-color: #422711;
+  padding: 1.5em;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: 800;
+  transition: background 0.5s;
+}
+
+.sign-in-button-on-sign-up-page, .sign-up-button-on-sign-in-page {
+  background: white;
+  color: #422711;
+  padding: 1.2em;
+  flex-basis: 30%;
+  text-decoration: none;
+  transition: background 0.5s;
+  border-radius: 30px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: auto;
+  display: flex;
+}
+
+.login-button-styles:hover, .sign-in-button-on-login-page:hover {
+  background-color: #955627;
+  color: white;
+  text-decoration: underline;
+}
+
+.login-button-styles {
+  margin: 0 auto;
+}
+
+.login-button-styles:hover {
+  cursor: pointer;
+  background-color: #955627;
+  color: white;
+}
+
+#email-error, #password-error {
+  margin: 0.5em;
+}/*# sourceMappingURL=stylesLogin.css.map */
