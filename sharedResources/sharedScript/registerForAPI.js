@@ -3,10 +3,40 @@
 
 
 
-//Fetch posts--
 
 
-const baseAPIURL = 'https://api.noroff.dev/api/v1';
+
+register.mjs 
+
+import { API_SOCIAL_URL } from "../constants.mjs";
+
+const action = "/auth/register";
+const method = "POST";
+
+export async function register(profile){
+    const registerURL = API_SOCIAL_URL + action;
+    const body = JSON.stringify(profile);
+
+
+    const Response = await fetch(registerURL, {
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        method,
+        body
+    })
+
+    const response = await Response.json();
+    alert('Registration successful');
+    console.log(response);
+}
+
+
+
+//Fetch posts-- Old Code-- 
+
+
+/* const baseAPIURL = 'https://api.noroff.dev/api/v1';
 const registerURL = `${baseAPIURL}/social/auth/register`;
 const loginURL = `${baseAPIURL}/social/auth/login`;
 
@@ -76,4 +106,4 @@ async function fetchPosts(accessToken) {
 }
 
 //Execute!
-registerAndLogin();
+registerAndLogin();  */

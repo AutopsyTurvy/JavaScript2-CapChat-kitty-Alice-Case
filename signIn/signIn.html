@@ -11,15 +11,17 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
 
-    <link rel="stylesheet" href="/sass-css/css/stylesGeneral.css">
-    <link rel="stylesheet" href="/sass-css/css/stylesLogin.css">
-    <link rel="stylesheet" href="/sass-css/css/hamburgerMenu.css">
+    <link rel="stylesheet" href="/sharedResources/sharedCSS/stylesGeneral.css">
+    <link rel="stylesheet" href="/sharedResources/sharedCSS/stylesLoginAndSignIn.css">
+    <link rel="stylesheet" href="/sharedResources/sharedCSS/hamburgerMenu.css">
 
     
+    
 
-    <script defer src="script/loginscript.js"></script>
-    <script defer src="script/emailvalidation.js"></script>
     <script defer src="script/.js"></script>
+    <script defer src=""></script>
+    <script defer src=""></script>
+
 
     <title>CapChat -Sign In</title>
 
@@ -28,7 +30,7 @@
 
 <div class="logo-container">
     <div class="logo-image">
-      <img src="/Images/resized-images/capChatLogo.png" alt="CapChat Logo">
+      <img src="/sharedResources/sharedImages/capChatLogo.png" alt="CapChat Logo">
     </div>
   </div>
 
@@ -45,17 +47,18 @@
         </div>
 
         <div class="form-container">
-          <form action="/pages/feedPage.html" method="POST">
+          <form action="/feedPage/feedPage.html" method="GET">
+
             <div class="input-group">
               <label class="input-label" for="email">Email:</label>
-              <input type="email" id="emailSignIn" name="email" required placeholder="Your email:">
+              <input type="email" id="email" name="email" pattern="^[\w\-.]+@(stud\.)?noroff\.no$" title="Only 'stud.noroff' or 'noroff.no' emails can register- Apologies for any inconvenience." required placeholder="Your email:">
             </div>
 
-            <div id="name-error"></div>
+            <div id="email-error"></div>
 
             <div class="input-group">
               <label class="input-label" for="password">Password:</label>
-              <input type="password" id="passwordSignIn" name="password" required placeholder="Your password:">
+              <input type="password" id="password" name="password" minlength="8" required placeholder="Your password:">
             </div>
 
             <div id="password-error"></div>
@@ -67,19 +70,7 @@
           </form>
         </div>
 
-        <div class="">
-          <hr class="dividers">
-          <p>or</p>
-          <hr class="dividers">
-        </div>
-
-        <div class="">
-          <p>(To Homepage)</p>
-        </div>
-
-        <div class="login-button-positioning">
-          <a class="login-button-styles to-homepage-button" href="/pages/feedPage.html">Homepage</a>
-        </div>
+       
 
       </div>
     </div>
@@ -87,10 +78,10 @@
 
   <div class="login-background-images-container">
     <div class="login-background-images">
-      <img src="/Images/resized-images/butterTrunk.jpg" alt="Pale cream mushrooms on the mossy trunk of a tree">
-      <img src="/Images/resized-images/redBlueMushrooms.jpg" alt="Luminous red mushrooms on blue/ purple tinted tree bark">
-      <img src="/Images/resized-images/flyagaricBrightCenter.jpg" alt="Red spotted mushroom in grass">
-      <img src="/Images/resized-images/gilledRain.jpg" alt="Brown mushrooms in twinkling rain">
+      <img src="/sharedResources/sharedImages/butterTrunk.jpg" alt="Pale cream mushrooms on the mossy trunk of a tree">
+      <img src="/sharedResources/sharedImages/redBlueMushrooms.jpg" alt="Luminous red mushrooms on blue/ purple tinted tree bark">
+      <img src="/sharedResources/sharedImages/flyagaricBrightCenter.jpg" alt="Red spotted mushroom in grass">
+      <img src="/sharedResources/sharedImages/gilledRain.jpg" alt="Brown mushrooms in twinkling rain">
     </div>
   </div>
 

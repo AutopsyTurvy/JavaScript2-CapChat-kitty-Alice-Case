@@ -1,0 +1,23 @@
+{
+  "name": "javascript2-capchat-kitty-alice-case",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AutopsyTurvy/JavaScript2-CapChat-kitty-Alice-Case.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AutopsyTurvy/JavaScript2-CapChat-kitty-Alice-Case/issues"
+  },
+  "homepage": "https://github.com/AutopsyTurvy/JavaScript2-CapChat-kitty-Alice-Case#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

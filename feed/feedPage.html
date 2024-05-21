@@ -11,13 +11,13 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
 
-    <link rel="stylesheet" href="/sass-css/css/stylesGeneral.css">
-    <link rel="stylesheet" href="/sass-css/css/hamburgerMenu.css">
-    <link rel="stylesheet" href="/sass-css/css/stylesFeedPage.css">
+    <link rel="stylesheet" href="/sharedResources/sharedCSS/stylesGeneral.css">
+    <link rel="stylesheet" href="/sharedResources/sharedCSS/hamburgerMenu.css">
+    <link rel="stylesheet" href="/sharedResources/sharedCSS/stylesFeedPage.css">
 
-    <script defer src="/script/hamburgerMenu.js"></script>
-    <script defer src="/script/feedPageScript.js"></script>
-    <script defer src="/script/registerForAPI.js"></script>
+    <script defer src="/sharedResources/sharedScript/hamburgerMenu.js"></script>
+    <script defer src="/feedPage/script/feedPageScript.js"></script>
+    <script defer src=""></script>
 
     <title>CapChat Home- Feed Page</title>
 
@@ -40,24 +40,24 @@
         <div id="navMenu" class="nav-menu">
 
             <div class="link-item hamburger-icon">
-                <img class="" src="/Images/resized-images/capChatLogo.png" alt="CapChat Logo">
+                <img class="" src="/sharedResources/sharedImages/capChatLogo.png" alt="CapChat Logo">
             </div>
             
 
             <div class="link-item hamburger-icon">
-                <i class="fa-solid fa-house" style="color: #ffff;"></i><a href="/pages/feedPage.html">Home</a>
+                <i class="fa-solid fa-house" style="color: #ffff;"></i><a href="/feedPage/feedPage.html">Home</a>
             </div>
             <div class="link-item hamburger-icon">
-                <i class="fa-solid fa-user" style="color: #ffff;"></i><a href="/pages/profilePage.html">Profile</a>
+                <i class="fa-solid fa-user" style="color: #ffff;"></i><a href="/profilePage/profilePage.html">Profile</a>
             </div>
             <div class="link-item hamburger-icon">
-                <i class="fa-solid fa-pen-fancy" style="color: #ffff;"></i><a href="">Add a thought</a>
+                <i class="fa-solid fa-pen-fancy" style="color: #ffff;"></i><a href="/feedPage/feedPage.html">Add a thought</a>
             </div>
             <div class="link-item hamburger-icon">
-                <i class="fa-solid fa-magnifying-glass" style="color: #ffff;"></i><a href="/pages/feedPage.html">Search</a>
+                <i class="fa-solid fa-magnifying-glass" style="color: #ffff;"></i><a href="/feedPage/feedPage.html">Search</a>
             </div>
             <div class="link-item hamburger-icon">
-                <i class="fa-solid fa-earth-europe" style="color: #ffff;"></i><a href="/pages/feedPage.html">Explore</a>
+                <i class="fa-solid fa-earth-europe" style="color: #ffff;"></i><a href="/feedPage/feedPage.html">Explore</a>
             </div>
             <div class="link-item hamburger-icon">
                 <i class="fa-solid fa-right-to-bracket" style="color: #ffff;"></i><a href="/index.html">Log In</a>
@@ -99,24 +99,24 @@
             <div class="large-screen-nav-bar">
                 <div class="logo-container">
                     <div class="feed-page-logo">
-                        <img src="/Images/resized-images/capChatLogo.png" alt="CapChat Logo">
+                        <img src="/sharedResources/sharedImages/capChatLogo.png" alt="CapChat Logo">
                     </div>
                     <h2>Cap Chat</h2>
                     <div class="nav-links-container">
                         <div class="link-item">
-                            <i class="fa-solid fa-house" style="color: #553d00;"></i><a href="/pages/feedPage.html" class="large-nav-bar-links">Home</a>
+                            <i class="fa-solid fa-house" style="color: #553d00;"></i><a href="/feedPage/feedPage.html" class="large-nav-bar-links">Home</a>
                         </div>
                         <div class="link-item">
-                            <i class="fa-solid fa-user" style="color: #553d00;"></i><a href="/pages/profilePage.html" class="large-nav-bar-links">Profile</a>
+                            <i class="fa-solid fa-user" style="color: #553d00;"></i><a href="/profilePage/profilePage.html" class="large-nav-bar-links">Profile</a>
                         </div>
                         <div class="link-item">
-                            <i class="fa-solid fa-pen-fancy" style="color: #553d00;"></i><a href="" class="large-nav-bar-links">Add a thought</a>
+                            <i class="fa-solid fa-pen-fancy" style="color: #553d00;"></i><a href="/feedPage/feedPage.html" class="large-nav-bar-links">Add a thought</a>
                         </div>
                         <div class="link-item">
-                            <i class="fa-solid fa-magnifying-glass" style="color: #553d00;"></i><a href="/pages/feedPage.html" class="large-nav-bar-links">Search</a>
+                            <i class="fa-solid fa-magnifying-glass" style="color: #553d00;"></i><a href="/feedPage/feedPage.html" class="large-nav-bar-links">Search</a>
                         </div>
                         <div class="link-item">
-                            <i class="fa-solid fa-earth-europe" style="color: #553d00;"></i><a href="/pages/feedPage.html" class="large-nav-bar-links">Explore</a>
+                            <i class="fa-solid fa-earth-europe" style="color: #553d00;"></i><a href="/feedPage/feedPage.html" class="large-nav-bar-links">Explore</a>
                         </div>
                         <div class="link-item">
                             <i class="fa-solid fa-right-to-bracket" style="color: #553d00;"></i><a href="/index.html" class="large-nav-bar-links">Log In</a>
@@ -126,11 +126,13 @@
             </div>
 
             <div class="main-feed-container">
+
+                <button class="sort" id="sort" type="submit">Sort</button>
               
 
                 <div class="card">
                     <div class="thumbnail">
-                        <img src="/Images/resized-images/capChatLogo.png" alt="Thumbnail">
+                        <img src="/sharedResources/sharedImages/capChatLogo.png" alt="Thumbnail">
                     </div>
                     <div class="content">
                         <h1>This is what i'm thinking about:</h1>
@@ -140,7 +142,7 @@
 
                 <div class="card">
                     <div class="thumbnail">
-                        <img src="/Images/resized-images/capChatLogo.png" alt="Thumbnail">
+                        <img src="/sharedResources/sharedImages/capChatLogo.png" alt="Thumbnail">
                     </div>
                     <div class="content">
                         <h1>This is what i'm thinking about:</h1>
@@ -150,7 +152,7 @@
 
                 <div class="card">
                     <div class="thumbnail">
-                        <img src="/Images/resized-images/capChatLogo.png" alt="Thumbnail">
+                        <img src="/sharedResources/sharedImages/capChatLogo.png" alt="Thumbnail">
                     </div>
                     <div class="content">
                         <h1>This is what i'm thinking about:</h1>
@@ -160,7 +162,7 @@
 
                 <div class="card">
                     <div class="thumbnail">
-                        <img src="/Images/resized-images/capChatLogo.png" alt="Thumbnail">
+                        <img src="/sharedResources/sharedImages/capChatLogo.png" alt="Thumbnail">
                     </div>
                     <div class="content">
                         <h1>This is what i'm thinking about:</h1>
@@ -170,7 +172,7 @@
 
                 <div class="card">
                     <div class="thumbnail">
-                        <img src="/Images/resized-images/capChatLogo.png" alt="Thumbnail">
+                        <img src="/sharedResources/sharedImages/capChatLogo.png" alt="Thumbnail">
                     </div>
                     <div class="content">
                         <h1>This is what i'm thinking about:</h1>
@@ -180,7 +182,7 @@
 
                 <div class="card">
                     <div class="thumbnail">
-                        <img src="/Images/resized-images/capChatLogo.png" alt="Thumbnail">
+                        <img src="/sharedResources/sharedImages/capChatLogo.png" alt="Thumbnail">
                     </div>
                     <div class="content">
                         <h1>This is what i'm thinking about:</h1>
@@ -190,7 +192,7 @@
 
                 <div class="card">
                     <div class="thumbnail">
-                        <img src="/Images/resized-images/capChatLogo.png" alt="Thumbnail">
+                        <img src="/sharedResources/sharedImages/capChatLogo.png" alt="Thumbnail">
                     </div>
                     <div class="content">
                         <h1>This is what i'm thinking about:</h1>
@@ -200,7 +202,7 @@
 
                 <div class="card">
                     <div class="thumbnail">
-                        <img src="/Images/resized-images/capChatLogo.png" alt="Thumbnail">
+                        <img src="/sharedResources/sharedImages/capChatLogo.png" alt="Thumbnail">
                     </div>
                     <div class="content">
                         <h1>This is what i'm thinking about:</h1>
@@ -210,7 +212,7 @@
 
                 <div class="card">
                     <div class="thumbnail">
-                        <img src="/Images/resized-images/capChatLogo.png" alt="Thumbnail">
+                        <img src="/sharedResources/sharedImages/capChatLogo.png" alt="Thumbnail">
                     </div>
                     <div class="content">
                         <h1>This is what i'm thinking about:</h1>
@@ -220,7 +222,7 @@
 
                 <div class="card">
                     <div class="thumbnail">
-                        <img src="/Images/resized-images/capChatLogo.png" alt="Thumbnail">
+                        <img src="/sharedResources/sharedImages/capChatLogo.png" alt="Thumbnail">
                     </div>
                     <div class="content">
                         <h1>This is what i'm thinking about:</h1>
@@ -241,16 +243,16 @@
     <footer class="footer-small-screen">
         <div class="footer-links-container">
             <div class="footer-link-item">
-                <a href="/pages/feedPage.html" class="large-nav-bar-links"><i class="fa-brands fa-facebook" style="color: #e1cdc2;"></i></a>
+                <a href="/feedPage/feedPage.html" class="large-nav-bar-links"><i class="fa-brands fa-facebook" style="color: #e1cdc2;"></i></a>
             </div>
             <div class="footer-link-item">
-                <a href="/pages/feedPage.html" class="large-nav-bar-links"><i class="fa-brands fa-twitter" style="color: #e1cdc2;"></i></a>
+                <a href="/feedPage/feedPage.html" class="large-nav-bar-links"><i class="fa-brands fa-twitter" style="color: #e1cdc2;"></i></a>
             </div>
             <div class="footer-link-item">
-                <a href="/pages/feedPage.html" class="large-nav-bar-links"><i class="fa-brands fa-instagram" style="color: #e1cdc2;"></i></a>
+                <a href="/feedPage/feedPage.html" class="large-nav-bar-links"><i class="fa-brands fa-instagram" style="color: #e1cdc2;"></i></a>
             </div>
             <div class="footer-link-item">
-                <a href="/pages/feedPage.html" class="large-nav-bar-links"><i class="fa-brands fa-tumblr" style="color: #e1cdc2;"></i></a>
+                <a href="/feedPage/feedPage.html" class="large-nav-bar-links"><i class="fa-brands fa-tumblr" style="color: #e1cdc2;"></i></a>
             </div>
         </div>
     </footer>

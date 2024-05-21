@@ -95,7 +95,7 @@ body {
   font-weight: 800;
 }
 
-#password, #email, #name, #passwordSignIn, #emailSignIn {
+#password, #email, #name, #passwordSignIn, #emailSignIn, #banner, #avatar {
   width: 95%;
   padding: 1em;
   border-radius: 20px;

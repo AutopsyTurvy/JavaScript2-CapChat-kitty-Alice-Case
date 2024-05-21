@@ -257,3 +257,26 @@ p {
     display: none;
   }
 }/*# sourceMappingURL=stylesFeedPage.css.map */
+
+
+
+
+
+
+
+
+.sort {
+  color: #422711;
+  background-color: white;
+  font-weight: bold;
+  border-radius: 20px;
+  padding: 0.8em;
+  font-family: "Poppins", sans-serif;
+  
+}
+
+.sort:hover {
+  color: #422711;
+  background-color: #e1cdc2;
+}
+

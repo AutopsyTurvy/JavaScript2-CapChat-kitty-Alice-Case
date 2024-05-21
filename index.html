@@ -12,13 +12,15 @@
 
 
     <link rel="stylesheet" href="/sharedResources/sharedCSS/stylesGeneral.css">
-    <link rel="stylesheet" href="/sharedResources/sharedCSS/hamburgerMenu.css">
     <link rel="stylesheet" href="/sharedResources/sharedCSS/stylesLoginAndSignIn.css">
 
-    
-    <script defer src="/sharedResources/sharedScript/hamburgerMenu.js"></script>
-    <script defer src="/signUpRegistryPage/registerNameAndPassword.js"></script>
-    <script defer src="/signUpRegistryPage/registerEmailvalidation.js"></script>
+
+
+   
+    <script defer type="module" src="./sharedResources/sharedScript/index.mjs"></script>
+    <script defer type="module" src="./sharedResources/sharedScript/constants.mjs"></script>
+    <script defer type="module" src="/signUpRegistryPage/script/registerNameAndPassword.js"></script>
+    <script defer type="module" src="/signUpRegistryPage/script/registerEmailvalidation.js"></script>
     
 
 
@@ -49,45 +51,88 @@
 
                 <div class="login-header">
                     <h2 class="text-white" id="title">Sign Up:</h2>
+
+                    <hr class="dividers">
+
                     <p class="text-white">Please ensure your email and password are entered correctly before proceeding.</p>
                 </div>
 
 
+
+
+
+
+
+
+                <!-- 
+
+We will create an input for each of these fields:
+
+{
+  "name": "lqGaqyxzfwqBad32DxZP",
+  "email": "user@example.com",
+  "banner": "string",
+  "avatar": "string",
+  "password": "stringst"
+}
+
+
+13:58 in video so far-- continue later.
+
+                -->
                 
         
                 <div class="form-container">
-                    <form action="/pages/feedPage.html" method="POST">
+                    <form method="GET" action="/feedPage/feedPage.html" >
 
 
                         <div class="input-group">
                             <label class="input-label" id="nameField" for="name">Name:</label>
-                            <input type="text" id="name" name="name" required placeholder="Your name:">
+                            <input type="text" id="name" name="name" required pattern="^[a-zA-Z0-9\s]+$" title="Username must not contain symbols '- _ ? ! $ %'- etc. Example: Helga Hufflepuff" placeholder="Your name:">
                         </div>
 
 
                         <div class="input-group">
                             <label class="input-label" for="email">Email:</label>
-                            <input type="email" id="email" name="email" required placeholder="Your email:">
+                            <input type="email" id="email" name="email" pattern="^[\w\-.]+@(stud\.)?noroff\.no$" title="Only 'stud.noroff' or 'noroff.no' emails can register- Apologies for any inconvenience." required placeholder="Your email:">
                         </div>
 
-                            <div id="name-error"></div>
- 
-
+                        <div id="email-error"></div>
 
 
                         <div class="input-group">
-
                             <label class="input-label" for="password">Password:</label>
-                            <input type="password" id="password" name="password" required placeholder="Your password:">
+                            <input type="password" id="password" name="password" minlength="8" required placeholder="Your password:">
                         </div>
 
 
                             <div id="password-error"></div>
 
+
+                        <div class="input-group">
+                            <label class="input-label" for="banner">Banner:</label>
+                            <input type="url" id="banner" name="banner" placeholder="(Optional)">
+                        </div>
+
+
+                        <div class="input-group">
+                            <label class="input-label" for="avatar">Avatar:</label>
+                            <input type="url" id="avatar" name="avatar" placeholder="(Optional)">
+                        </div>
+
+
+
+
+
+
+
+
+
+
                         
                         <div class="login-button-positioning">
                             <button class="login-button-styles sign-up-button-on-sign-up-page" id="signUpButton" type="submit">Sign Up</button>
-                            <a href="/pages/signIn.html" class="login-button-styles sign-in-button-on-sign-up-page" id="signInButton">Sign In</a>
+                            <a href="/signIn/signIn.html" class="login-button-styles sign-in-button-on-sign-up-page" id="signInButton">Sign In</a>
                         </div>
                 
 
@@ -95,24 +140,6 @@
                     </form>
                 </div>
                 
-
-
-                <div class="">
-                    <hr class="dividers">
-                    <p>or</p>
-                    <hr class="dividers">
-                </div>
-
-                <div class="">
-        
-                    <p>(To Homepage)</p>
-                </div>
-
-                <div class="login-button-positioning">
-                    <!-- <button class="login-button-styles">Sign In</button> -->
-
-                    <a class="login-button-styles to-homepage-button" href="/pages/feedPage.html" class="">Homepage</a>
-                </div>
             </div>
         </div>
     </div>
@@ -128,11 +155,10 @@
 
 <div class="login-background-images-container">
     <div class="login-background-images">
-        <img src="/loginPageAndRegistry/Images/butterTrunk.jpg" alt="Pale cream mushrooms on the mossy trunk of a tree">
-        <img src="/loginPageAndRegistry/Images/redBlueMushrooms.jpg" alt="Luminous red mushrooms on blue/ purple tinted tree bark">
-        <img src="/loginPageAndRegistry/Images/flyagaricBrightCenter.jpg" alt="Red spotted mushroom in grass">
-        <img src="/loginPageAndRegistry/Images/gilledRain.jpg" alt="Brown mushrooms in twinkling rain">
-
+        <img src="/sharedResources/sharedImages/butterTrunk.jpg" alt="Pale cream mushrooms on the mossy trunk of a tree">
+      <img src="/sharedResources/sharedImages/redBlueMushrooms.jpg" alt="Luminous red mushrooms on blue/ purple tinted tree bark">
+      <img src="/sharedResources/sharedImages/flyagaricBrightCenter.jpg" alt="Red spotted mushroom in grass">
+      <img src="/sharedResources/sharedImages/gilledRain.jpg" alt="Brown mushrooms in twinkling rain">
     </div>
 </div>
 
