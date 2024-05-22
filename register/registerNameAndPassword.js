@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const errorForName = document.getElementById('name-error');
     const errorForPassword = document.getElementById('password-error');
 
-
     name.addEventListener('input', function () {
         let words = name.value.split(/\s+/).map(word => {
             return word.charAt(0).toUpperCase() + word.substring(1).toLowerCase();
@@ -24,9 +23,9 @@ document.addEventListener('DOMContentLoaded', function () {
             messages.push("We'd like to get to know you and learn your name!");
         }
         errorForName.innerText = messages.join(', ');
+        console.log('Name Error:', messages.join(', '));
     });
 
-  
     password.addEventListener('input', function () {
         let messages = [];
 
@@ -43,9 +42,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         errorForPassword.innerText = messages.join(', ');
+        console.log('Password Error:', messages.join(', '));
     });
 
-  
     form.addEventListener('submit', (e) => {
         let nameMessages = [];
         let passwordMessages = [];
@@ -62,10 +61,12 @@ document.addEventListener('DOMContentLoaded', function () {
             e.preventDefault();
             errorForName.innerText = nameMessages.join(', ');
             errorForPassword.innerText = passwordMessages.join(', ');
+            console.log('Form Error:', nameMessages.join(', '), passwordMessages.join(', '));
         } else {
             errorForName.innerText = '';
             errorForPassword.innerText = '';
         }
     });
 });
+
 
