@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "sass src/scss:dist/css",
+    "watch": "sass --watch src/scss:dist/css & live-server",
+    "start": "npm run build && live-server"
   },
   "repository": {
     "type": "git",
@@ -18,6 +21,7 @@
   },
   "homepage": "https://github.com/AutopsyTurvy/JavaScript2-CapChat-kitty-Alice-Case#readme",
   "dependencies": {
+    "bootstrap": "^5.3.3",
     "express": "^4.19.2"
   }
 }

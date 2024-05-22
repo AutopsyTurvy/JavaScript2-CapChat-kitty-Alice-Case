@@ -17,10 +17,15 @@
 
 
    
-    <script defer type="module" src="./sharedResources/sharedScript/index.mjs"></script>
-    <script defer type="module" src="./sharedResources/sharedScript/constants.mjs"></script>
-    <script defer type="module" src="/signUpRegistryPage/script/registerNameAndPassword.js"></script>
-    <script defer type="module" src="/signUpRegistryPage/script/registerEmailvalidation.js"></script>
+    
+    <script defer type="module" src="/src/script/index.mjs"></script>
+    <script defer type="module" src="/src/script/constants.mjs"></script>
+
+
+    <script defer type="module" src="/register/registerNameAndPassword.js"></script>
+    <script defer type="module" src="/register/registerEmailvalidation.js"></script>
+    
+
     
 
 
@@ -83,13 +88,16 @@ We will create an input for each of these fields:
                 
         
                 <div class="form-container">
-                    <form method="GET" action="/feedPage/feedPage.html" >
+                    <form id="registerForm" method="GET" action="/auth/register" >
 
 
                         <div class="input-group">
                             <label class="input-label" id="nameField" for="name">Name:</label>
                             <input type="text" id="name" name="name" required pattern="^[a-zA-Z0-9\s]+$" title="Username must not contain symbols '- _ ? ! $ %'- etc. Example: Helga Hufflepuff" placeholder="Your name:">
                         </div>
+
+                        
+                        <div id="name-error"></div>
 
 
                         <div class="input-group">
@@ -119,12 +127,6 @@ We will create an input for each of these fields:
                             <label class="input-label" for="avatar">Avatar:</label>
                             <input type="url" id="avatar" name="avatar" placeholder="(Optional)">
                         </div>
-
-
-
-
-
-
 
 
 

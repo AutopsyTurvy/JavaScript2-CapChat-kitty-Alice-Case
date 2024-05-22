@@ -6,9 +6,11 @@
 
 
 
-register.mjs 
+/* register.mjs 
 
-import { API_SOCIAL_URL } from "../constants.mjs";
+
+
+import { API_SOCIAL_URL } from "../src/script/constants.mjs";
 
 const action = "/auth/register";
 const method = "POST";
