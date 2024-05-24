@@ -22,6 +22,8 @@
     <script defer type="module" src="/src/script/constants.mjs"></script>
 
 
+
+
     <script defer type="module" src="/register/registerNameAndPassword.js"></script>
     <script defer type="module" src="/register/registerEmailvalidation.js"></script>
     
@@ -70,8 +72,7 @@
 
 
                 <!-- 
-
-We will create an input for each of these fields:
+Create an input for each of these fields:
 
 {
   "name": "lqGaqyxzfwqBad32DxZP",
@@ -79,67 +80,46 @@ We will create an input for each of these fields:
   "banner": "string",
   "avatar": "string",
   "password": "stringst"
-}
-
-
-13:58 in video so far-- continue later.
-
-                -->
-                
-        
+}-->         
+     
                 <div class="form-container">
-                    <form id="registerForm" method="GET" action="/auth/register" >
+    <form id="registerForm">
 
+        <div class="input-group">
+            <label class="input-label" id="nameField" for="name">Name:</label>
+            <input type="text" id="name" name="name" required pattern="^[a-zA-Z0-9\s]+$" title="Username must not contain symbols '- _ ? ! $ %'- etc. Example: Helga Hufflepuff" placeholder="Your name:">
+        </div>
+        <div id="name-error"></div>
 
-                        <div class="input-group">
-                            <label class="input-label" id="nameField" for="name">Name:</label>
-                            <input type="text" id="name" name="name" required pattern="^[a-zA-Z0-9\s]+$" title="Username must not contain symbols '- _ ? ! $ %'- etc. Example: Helga Hufflepuff" placeholder="Your name:">
-                        </div>
+        <div class="input-group">
+            <label class="input-label" for="email">Email:</label>
+            <input type="email" id="email" name="email" pattern="^[\w\-.]+@(stud\.)?noroff\.no$" title="Only 'stud.noroff' or 'noroff.no' emails can register- Apologies for any inconvenience." required placeholder="Your email:">
+        </div>
+        <div id="email-error"></div>
 
-                        
-                        <div id="name-error"></div>
+        <div class="input-group">
+            <label class="input-label" for="password">Password:</label>
+            <input type="password" id="password" name="password" minlength="8" required placeholder="Your password:">
+        </div>
+        <div id="password-error"></div>
 
+        <div class="input-group">
+            <label class="input-label" for="banner">Banner:</label>
+            <input type="url" id="banner" name="banner" placeholder="(Optional)">
+        </div>
 
-                        <div class="input-group">
-                            <label class="input-label" for="email">Email:</label>
-                            <input type="email" id="email" name="email" pattern="^[\w\-.]+@(stud\.)?noroff\.no$" title="Only 'stud.noroff' or 'noroff.no' emails can register- Apologies for any inconvenience." required placeholder="Your email:">
-                        </div>
+        <div class="input-group">
+            <label class="input-label" for="avatar">Avatar:</label>
+            <input type="url" id="avatar" name="avatar" placeholder="(Optional)">
+        </div>
 
-                        <div id="email-error"></div>
+        <div class="login-button-positioning">
+            <button class="login-button-styles sign-up-button-on-sign-up-page" id="signUpButton" type="submit">Sign Up</button>
+            <a href="/signIn/signIn.html" class="login-button-styles sign-in-button-on-sign-up-page" id="signInButton">Sign In</a>
+        </div>
+    </form>
+</div>
 
-
-                        <div class="input-group">
-                            <label class="input-label" for="password">Password:</label>
-                            <input type="password" id="password" name="password" minlength="8" required placeholder="Your password:">
-                        </div>
-
-
-                            <div id="password-error"></div>
-
-
-                        <div class="input-group">
-                            <label class="input-label" for="banner">Banner:</label>
-                            <input type="url" id="banner" name="banner" placeholder="(Optional)">
-                        </div>
-
-
-                        <div class="input-group">
-                            <label class="input-label" for="avatar">Avatar:</label>
-                            <input type="url" id="avatar" name="avatar" placeholder="(Optional)">
-                        </div>
-
-
-
-
-                        
-                        <div class="login-button-positioning">
-                            <button class="login-button-styles sign-up-button-on-sign-up-page" id="signUpButton" type="submit">Sign Up</button>
-                            <a href="/signIn/signIn.html" class="login-button-styles sign-in-button-on-sign-up-page" id="signInButton">Sign In</a>
-                        </div>
-                
-
-
-                    </form>
                 </div>
                 
             </div>
