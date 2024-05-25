@@ -141,7 +141,7 @@ body {
   border-radius: 30px;
   border: none;
   cursor: pointer;
-  width: auto;
+  width: 40%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -153,7 +153,7 @@ body {
 
 /* (brown buttons) */
 .register-button-on-register-page, .login-button-on-login-page {
-  padding: 1.8em;
+  padding: 1.9em;
   display: flex;
   background-color: #422711;
   color: white;

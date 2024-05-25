@@ -1,9 +1,10 @@
 
 
-// src/script/auth/.mjs
+// src/script/auth/login.mjs
 
+/*
 
-/*import { API_SOCIAL_URL } from "../constants.mjs";
+import { API_SOCIAL_URL } from "../constants.mjs";
 
 const action = "/auth/login";
 const method = "post";
@@ -24,8 +25,9 @@ export async function login(profile) {
 
     const result = await response.json();
     console.log(result);
-} */
+} 
 
+*/
 
 
 

@@ -1,8 +1,8 @@
 
+/* 
+
 
 // src/script/handlers/register.mjs
-
-
 
 
 
@@ -13,15 +13,13 @@ export function setRegisterFormListener() {
         const form = document.getElementById('registerForm');
 
         if (form) {
-            // This ensures event listener is not already added--
-
+            // Ensure event listener is not already added
             if (form.getAttribute('data-listener-added') === 'true') {
                 return;
             }
             form.setAttribute('data-listener-added', 'true');
 
-            // Targets the form as a whole, also for name and password inputs
-
+            // To target the form as a whole, name and password inputs
             const name = document.getElementById('name');
             const password = document.getElementById('password');
 
@@ -48,7 +46,7 @@ export function setRegisterFormListener() {
                 console.log('Name Error:', messages.join(', '));
             });
 
-            // Password input handling
+            // password input handling
             password.addEventListener('input', function () {
                 let messages = [];
 
@@ -108,11 +106,10 @@ export function setRegisterFormListener() {
                     if (result && result.id) {
                         console.log(result);
 
-                        // Store user data in localStorage (does not work yet)
+                        // Store user data in localStorage (hopefully)
                         localStorage.setItem('user', JSON.stringify(result));
                         form.removeEventListener('submit', this);
                     } else {
-                        
                         // Handle error cases, and thrown inner html error
                         console.error('Registration failed:', result);
                         const errorMsg = result.error?.errors?.[0]?.message || 'Registration failed';
@@ -129,5 +126,5 @@ export function setRegisterFormListener() {
     });
 }
 
-
+*/
 
