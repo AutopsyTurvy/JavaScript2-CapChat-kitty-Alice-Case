@@ -1,7 +1,7 @@
 
 
 
-// General Form Validation 
+// General Form Validation for "Name" and "Password" 
 
 
 
@@ -13,12 +13,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const errorForPassword = document.getElementById('password-error');
 
     name.addEventListener('input', function () {
-        let words = name.value.split(/\s+/).map(word => {
-            return word.charAt(0).toUpperCase() + word.substring(1).toLowerCase();
-        });
-        name.value = words.join(' ');
+
+
+        /* The section below should replace any accidental spaces with underscores, 
+        but the added tip should be a falsafe :) */
+
+
+        name.value = name.value.replace(/\s+/g, '_');
 
         let messages = [];
+        if (!/^[a-zA-Z0-9_]+$/.test(name.value)) {
+            messages.push("Name must only contain letters, numbers, and underscores.");
+        }
         if (name.value.trim() === '') {
             messages.push("We'd like to get to know you and learn your name!");
         }
@@ -37,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
             messages.push('Password must be less than twenty characters.');
         }
 
-        if (password.value === 'password' || password.value === 'Password') {
+        if (password.value.toLowerCase() === 'password') {
             messages.push('Your password cannot be "Password" - It will be guessed too easily!');
         }
 
@@ -49,12 +55,20 @@ document.addEventListener('DOMContentLoaded', function () {
         let nameMessages = [];
         let passwordMessages = [];
 
+        if (!/^[a-zA-Z0-9_]+$/.test(name.value)) {
+            nameMessages.push("Name must only contain letters, numbers, and underscores.");
+        }
+
         if (name.value.trim() === '') {
             nameMessages.push("We'd like to get to know you and learn your name!");
         }
 
         if (password.value.length < 8) {
             passwordMessages.push('Password must be at least 8 characters long.');
+        }
+
+        if (password.value.length > 20) {
+            passwordMessages.push('Password must be less than twenty characters.');
         }
 
         if (nameMessages.length > 0 || passwordMessages.length > 0) {
@@ -68,5 +82,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
 
 

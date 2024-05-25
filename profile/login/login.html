@@ -12,9 +12,10 @@
 
 
     <link rel="stylesheet" href="/sharedResources/sharedCSS/stylesGeneral.css">
-    <link rel="stylesheet" href="/sharedResources/sharedCSS/stylesLoginAndSignIn.css">
-    <link rel="stylesheet" href="/sharedResources/sharedCSS/hamburgerMenu.css">
+    <link rel="stylesheet" href="/sharedResources/sharedCSS/stylesRegisterAndLogin.css">
 
+
+   
     
     
 
@@ -23,7 +24,7 @@
     <script defer src=""></script>
 
 
-    <title>CapChat -Sign In</title>
+    <title>CapChat -Log In</title>
 
 </head>
 <body>
@@ -40,18 +41,19 @@
     <div class="login-border-container">
       <div class="login-container-contents">
 
-        <div class="login-header">
-          <h2 class="text-white" id="title">Sign In:</h2>
+        <div class="header login-header">
+          <h2 class="text-white" id="title">Log In:</h2>
+          <hr class="dividers">
           <p>Welcome back!</p>
           <p>Please ensure your email and password are entered correctly before proceeding.</p>
         </div>
 
         <div class="form-container">
-          <form action="/feedPage/feedPage.html" method="GET">
+          <form id="loginForm" action="/auth/login" method="POST">
 
             <div class="input-group">
               <label class="input-label" for="email">Email:</label>
-              <input type="email" id="email" name="email" pattern="^[\w\-.]+@(stud\.)?noroff\.no$" title="Only 'stud.noroff' or 'noroff.no' emails can register- Apologies for any inconvenience." required placeholder="Your email:">
+              <input type="email" id="email" name="email" pattern="^[\w\-.]+@(stud\.)?noroff\.no$" title="Only 'stud.noroff' or 'noroff.no' emails can signin- Apologies for any inconvenience." required placeholder="Your email:">
             </div>
 
             <div id="email-error"></div>
@@ -63,9 +65,9 @@
 
             <div id="password-error"></div>
 
-            <div class="login-button-positioning">
-              <a href="/index.html" class="login-button-styles sign-up-button-on-sign-in-page" id="signUpButtonOnSignIn">Sign Up</a>
-              <button class="login-button-styles sign-in-button-on-sign-in-page" id="signInButtonOnSignIn" type="submit">Sign In</button>
+            <div class="login-buttons-positioning">
+              <a href="/index.html" class="login-button-styles register-button-on-login-page" id="registerButtonOnLoginPage">Register</a>
+              <button class="login-button-styles login-button-on-login-page" id="loginButtonOnLoginPage" type="submit">Log in</button>
             </div>
           </form>
         </div>

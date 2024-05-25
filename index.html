@@ -1,3 +1,6 @@
+ <!-- index.html- source file -->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +15,7 @@
 
 
     <link rel="stylesheet" href="/sharedResources/sharedCSS/stylesGeneral.css">
-    <link rel="stylesheet" href="/sharedResources/sharedCSS/stylesLoginAndSignIn.css">
+    <link rel="stylesheet" href="/sharedResources/sharedCSS/stylesRegisterAndLogin.css">
 
 
 
@@ -20,12 +23,13 @@
     
     <script defer type="module" src="/src/script/index.mjs"></script>
     <script defer type="module" src="/src/script/constants.mjs"></script>
+    <script defer type="module" src="/src/script/handlers/register.mjs"></script>
+    <script defer type="module" src="/src/script/auth/register.mjs"></script>
 
 
 
-
-    <script defer type="module" src="/register/registerNameAndPassword.js"></script>
-    <script defer type="module" src="/register/registerEmailvalidation.js"></script>
+    <script defer type="module" src="/registerValidation/registerNameAndPassword.js"></script>
+    <script defer type="module" src="/registerValidation/registerNameAndPassword.js"></script>
     
 
     
@@ -56,8 +60,8 @@
         <div class="login-border-container">
             <div class="login-container-contents">
 
-                <div class="login-header">
-                    <h2 class="text-white" id="title">Sign Up:</h2>
+                <div class="header register-header">
+                    <h2 class="text-white" id="title">Register:</h2>
 
                     <hr class="dividers">
 
@@ -65,59 +69,54 @@
                 </div>
 
 
-
-
-
-
-
-
-                <!-- 
-Create an input for each of these fields:
-
-{
+<!-- NOTE--
+    Create an input for each of these fields:{
+    
   "name": "lqGaqyxzfwqBad32DxZP",
   "email": "user@example.com",
   "banner": "string",
   "avatar": "string",
   "password": "stringst"
-}-->         
-     
+}-->
+                
                 <div class="form-container">
-    <form id="registerForm">
+                    <form id="registerForm">
 
-        <div class="input-group">
-            <label class="input-label" id="nameField" for="name">Name:</label>
-            <input type="text" id="name" name="name" required pattern="^[a-zA-Z0-9\s]+$" title="Username must not contain symbols '- _ ? ! $ %'- etc. Example: Helga Hufflepuff" placeholder="Your name:">
-        </div>
-        <div id="name-error"></div>
-
-        <div class="input-group">
-            <label class="input-label" for="email">Email:</label>
-            <input type="email" id="email" name="email" pattern="^[\w\-.]+@(stud\.)?noroff\.no$" title="Only 'stud.noroff' or 'noroff.no' emails can register- Apologies for any inconvenience." required placeholder="Your email:">
-        </div>
-        <div id="email-error"></div>
-
-        <div class="input-group">
-            <label class="input-label" for="password">Password:</label>
-            <input type="password" id="password" name="password" minlength="8" required placeholder="Your password:">
-        </div>
-        <div id="password-error"></div>
-
-        <div class="input-group">
-            <label class="input-label" for="banner">Banner:</label>
-            <input type="url" id="banner" name="banner" placeholder="(Optional)">
-        </div>
-
-        <div class="input-group">
-            <label class="input-label" for="avatar">Avatar:</label>
-            <input type="url" id="avatar" name="avatar" placeholder="(Optional)">
-        </div>
-
-        <div class="login-button-positioning">
-            <button class="login-button-styles sign-up-button-on-sign-up-page" id="signUpButton" type="submit">Sign Up</button>
-            <a href="/signIn/signIn.html" class="login-button-styles sign-in-button-on-sign-up-page" id="signInButton">Sign In</a>
-        </div>
-    </form>
+                        <div class="input-group">
+                            <label class="input-label" id="nameField" for="name">Name:</label>
+                            <input type="text" id="name" name="name" required pattern="^[a-zA-Z0-9_]+$" title="Username must only contain letters, numbers, and underscores. Example: Helga_Hufflepuff" placeholder="Your name:">
+                            <small id="name-tip">Tip: Please use underscores to separate words in your username.</small>
+                        </div>
+                        <div id="name-error"></div>
+                    
+                        <div class="input-group">
+                            <label class="input-label" for="email">Email:</label>
+                            <input type="email" id="email" name="email" pattern="^[\w\-.]+@(stud\.)?noroff\.no$" title="Only 'stud.noroff' or 'noroff.no' emails can register. Apologies for any inconvenience." required placeholder="Your email:">
+                        </div>
+                        <div id="email-error"></div>
+                    
+                        <div class="input-group">
+                            <label class="input-label" for="password">Password:</label>
+                            <input type="password" id="password" name="password" minlength="8" required placeholder="Your password:">
+                        </div>
+                        <div id="password-error"></div>
+                    
+                        <div class="input-group">
+                            <label class="input-label" for="banner">Banner:</label>
+                            <input type="url" id="banner" name="banner" placeholder="(Optional)">
+                        </div>
+                    
+                        <div class="input-group">
+                            <label class="input-label" for="avatar">Avatar:</label>
+                            <input type="url" id="avatar" name="avatar" placeholder="(Optional)">
+                        </div>
+                    
+                        <div class="login-buttons-positioning">
+                            <button class="login-button-styles register-button-on-register-page" id="registerButton" type="submit">Register</button>
+                            <a href="/profile/login/login.html" class="login-button-styles login-button-on-register-page" id="loginButton">Log In</a>
+                        </div>
+                    </form>
+                    
 </div>
 
                 </div>
