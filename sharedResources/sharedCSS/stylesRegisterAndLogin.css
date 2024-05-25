@@ -187,6 +187,20 @@ color: #422711;
 
 
 
+#general-error {
+  display: none;
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+  padding: 10px;
+  border: 2px solid red;
+  border-radius: 30px;
+  background-color: #f8d7da;
+  border-radius: 5px;
+  align-self: center;
+  text-align: center;
+}
+
 
 
 

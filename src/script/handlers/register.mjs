@@ -18,7 +18,7 @@ export function setRegisterFormListener() {
         // for errors:
         const errorForName = document.getElementById('name-error');
         const errorForPassword = document.getElementById('password-error');
-        const generalError = document.createElement('div');  
+        const generalError = document.createElement('div'); 
         generalError.id = 'general-error';
         form.appendChild(generalError);
 
@@ -99,29 +99,31 @@ export function setRegisterFormListener() {
 
                     console.log('Registration Result:', result);
 
-
-
-                    // lets see if this works....
                     if (result.error) {
                         if (result.error === 'Profile already exists') {
-                            generalError.innerText = 'Warning: Profile already exists.';
+                            generalError.innerText = 'Oh no! This profile already exists- Please enter another!';
+                            generalError.style.display = 'block'; 
                         } else {
                             generalError.innerText = 'Registration failed: ' + result.error;
+                            generalError.style.display = 'block'; 
                         }
                     } else if (result && result.id) {
                         console.log('Registration successful:', result);
                         generalError.innerText = '';  
-                     
+                        generalError.style.display = 'none'; 
+                        
                         localStorage.setItem('user', JSON.stringify(result));
                         window.location.href = '/profile.html';
                     } else {
                         generalError.innerText = 'Registration failed. Please try again.';
+                        generalError.style.display = 'block'; 
                     }
                 }
             });
         }
     });
 }
+
 
 
 
