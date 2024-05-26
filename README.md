@@ -110,7 +110,7 @@ Social Media site that the user should be able to register to, log into, post on
 -- Login/ register
 
 Should be able to register, first and foremost- this will create a profile for the user.
-Login should be able to do similar, but 
+Login should be able to do similar, but with a previously registered email and name etc.
 
 
 
@@ -126,19 +126,6 @@ The most interactive of the pages on this relatively simple site- here the user 
 -- Profile page
 
 Should display the information that the user has put on their register form, should display the posts they have made.
--- buy now
-
-Upon clicking the "Buy Now"/ "Add to cart" button on either the home page or the product details page, the number next to the cart icon should increase. 
-Whwn clicking on the cart icon itself, there should be visible a list of the games (or an empty cart if you have not selected any of the games), their prices, a running total and a "complete purchase" button that accurately simulates the buying process.
-
-
--- Contact Page
-
-This page should have form validation, and simulate the process of emailing the hosts of the site.
-
--- Other Pages
-
-For the functionality of the site the other pages are not integral- should inclide an "About us" page.
 
 
 ---
