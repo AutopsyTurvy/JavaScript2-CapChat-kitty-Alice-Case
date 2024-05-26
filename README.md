@@ -1,12 +1,11 @@
 
 ---
 
-![GitHub Logo](https://raw.githubusercontent.com/NoroffFEU/first-year-cross-course-assignment-brief-three/master/GameHub_Logo.png)
-
+![capChatLogo](https://github.com/AutopsyTurvy/JavaScript2-CapChat-kitty-Alice-Case/assets/102550358/2c3c7e07-7176-44f4-8420-a358ba64e2f0)
 
 ---
 
-![Image 25-02-2024 at 22 22 (1)](https://github.com/AutopsyTurvy/GameHub-KittyAliceCase/assets/102550358/f9d2f484-ccfe-4188-8149-acf7be130035)
+![readmeRegister](https://github.com/AutopsyTurvy/JavaScript2-CapChat-kitty-Alice-Case/assets/102550358/116bddc3-8f28-40e2-8bb1-0206eaab0c99)
 
 ---
 
@@ -95,6 +94,13 @@ Our Brief:
 
 
 ## Site purpose:
+
+
+** Important **
+
+I should first point out that the sign in and sign up pages have the same styles, so they will be found in the "sharedResources" folder.
+The same goes for the general styles in the feed and profile page, so these have also been placed in "sharedResources"-- I did this to avoid duplicate code, and hope it makes sense. If not in the folder corresponding to the page you seek, then you will find the code in shared resources.
+
 
 A game purchasing site with competitive prices and smooth functionality. You should be able to see a full display of the games on offer, and them add them to a semi functioning cart. (Main purpose-- to buy games.)
 
