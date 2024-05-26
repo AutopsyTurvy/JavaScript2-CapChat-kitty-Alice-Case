@@ -102,26 +102,30 @@ I should first point out that the sign in and sign up pages have the same styles
 The same goes for the general styles in the feed and profile page, so these have also been placed in "sharedResources"-- I did this to avoid duplicate code, and hope it makes sense. If not in the folder corresponding to the page you seek, then you will find the code in shared resources.
 
 
-A game purchasing site with competitive prices and smooth functionality. You should be able to see a full display of the games on offer, and them add them to a semi functioning cart. (Main purpose-- to buy games.)
-
+Social Media site that the user should be able to register to, log into, post onto-  they should be able to make a profile, edit and remove posts.
 
 
 ### Description
 
--- Home Page
+-- Login/ register
 
-Our home page was meant to introduce the site adequately, so at a glance it was obvious what the site did- 
-Thous would be via a title or to introduce the games- i tried to do both.
-This page should be easily to navigate through, and show clear options to view ore details about the games being sold. 
+Should be able to register, first and foremost- this will create a profile for the user.
+Login should be able to do similar, but 
 
--- Games 
 
-The user should have the option to click on one of the games displayed either on the home page, or a page where a selection of the games can be viewed, and be taken to a page the displays more information- 
 
--- Info page
+ 
 
-The page where the user can see more of the pertinent details about their prospective purchase, the price, if said game is on sale, how many players, the genre and a descriptive paragraph about the gameplay and adventure ahead.
+-- Profile--
 
+The most interactive of the pages on this relatively simple site- here the user should be able to post a "thought", edit the thought they posted, remove it, sort the other posts on the page- 
+
+
+
+
+-- Profile page
+
+Should display the information that the user has put on their register form, should display the posts they have made.
 -- buy now
 
 Upon clicking the "Buy Now"/ "Add to cart" button on either the home page or the product details page, the number next to the cart icon should increase. 
