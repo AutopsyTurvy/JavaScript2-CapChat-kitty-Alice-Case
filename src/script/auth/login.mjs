@@ -2,7 +2,6 @@
 
 // src/script/auth/login.mjs
 
-/*
 
 import { API_SOCIAL_URL } from "../constants.mjs";
 
@@ -11,23 +10,21 @@ const method = "post";
 
 export async function login(profile) {
     const loginURL = API_SOCIAL_URL + action;
-
     const body = JSON.stringify(profile);
-    console.log(loginURL);
 
     const response = await fetch(loginURL, {
         headers: {
-            "Content-Type": "application/json" 
+            "Content-Type": "application/json"
         },
-        method, 
+        method,
         body
     });
 
-    const result = await response.json();
-    console.log(result);
-} 
+    const result = await response.json()
+    console.log()
+}
 
-*/
+
 
 
 

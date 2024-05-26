@@ -1,6 +1,6 @@
 
 
-// login email validation
+// register email validation
 
 
 

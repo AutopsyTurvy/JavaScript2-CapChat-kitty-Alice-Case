@@ -18,21 +18,14 @@ export async function register(profile) {
         },
         method,
         body
-    });
-
-    const result = await response.json();
-
-    if (!response.ok) {
-        return { error: result };
-    }
-
-    return result;
+    })
+    const result = await response.json()
+    console.log(result)
 }
 
 
-// src/script/auth/register.mjs 
 
 
 
 
-// expected URL = https://api.noroff.dev/api/v1/social/auth/register
+// gives correct URL: https://api.noroff.dev/api/v1/social/auth/register
