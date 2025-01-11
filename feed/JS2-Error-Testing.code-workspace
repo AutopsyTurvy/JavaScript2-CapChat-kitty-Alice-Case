@@ -1,0 +1,45 @@
+{
+	"folders": [
+		{
+			"name": "JS2-Error-Testing",
+			"path": "../../JS2-Error-Testing"
+		},
+		{
+			"name": ".vscode",
+			"path": "../.vscode"
+		},
+		{
+			"name": "assets",
+			"path": "../assets"
+		},
+		{
+			"name": "css",
+			"path": "../dist/css"
+		},
+		{
+			"name": "feed",
+			"path": "."
+		},
+		{
+			"name": "node_modules",
+			"path": "../node_modules"
+		},
+		{
+			"name": "profile",
+			"path": "../profile"
+		},
+		{
+			"name": "registerValidation",
+			"path": "../registerValidation"
+		},
+		{
+			"name": "sharedResources",
+			"path": "../sharedResources"
+		},
+		{
+			"name": "src",
+			"path": "../src"
+		}
+	],
+	"settings": {}
+}
