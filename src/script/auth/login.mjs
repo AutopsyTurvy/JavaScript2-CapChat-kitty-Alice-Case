@@ -1,37 +1,52 @@
 
 
+
+
+
 // src/script/auth/login.mjs
 
 
-import { API_SOCIAL_URL } from "../constants.mjs";
+
+
+import { API_AUTH } from "../constants.mjs";  
 import * as storage from "../../storage/index.mjs";
 
-const action = "/auth/login";
-const method = "post";
+const action = "/login"; 
+const method = "POST";
 
 export async function login(profile) {
-  const loginURL = API_SOCIAL_URL + action;
+  const loginURL = API_AUTH + action; 
   const body = JSON.stringify(profile);
 
-  const response = await fetch(loginURL, {
-    headers: {
-      "Content-Type": "application/json",
-    },
-    method,
-    body,
-  });
+  try {
+    const response = await fetch(loginURL, {
+      method,
+      headers: {
+        "Content-Type": "application/json",
+        "X-Noroff-API-Key": "your-api-key-here", 
+      },
+      body,
+    });
 
-  const result = await response.json();
+    const result = await response.json();
 
-  if (!response.ok) {
-    throw new Error("Error logging in");
-  } else {
-    storage.save("profile", result.name);
-    storage.save("token", result.accessToken);
-    console.log("token", result.accessToken);
+    if (!response.ok) {
+      throw new Error(result.errors?.[0]?.message || "Login failed.");
+    }
+
+    if (result.data) {
+      storage.save("profile", result.data.name);
+      storage.save("token", result.data.accessToken);
+      console.log("Token saved:", result.data.accessToken);
+      
+  
+      window.location.href = "/pages/index-profile.html";
+    } else {
+      throw new Error("No user data returned.");
+    }
+  } catch (error) {
+    console.error("Login Error:", error);
+    alert("Login failed: " + error.message);
   }
-
-  console.log(result);
 }
-
 
