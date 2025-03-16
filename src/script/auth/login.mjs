@@ -14,39 +14,65 @@ import * as storage from "../../storage/index.mjs";
 const action = "/login"; 
 const method = "POST";
 
-export async function login(profile) {
-  const loginURL = API_AUTH + action; 
-  const body = JSON.stringify(profile);
+async function fetchApiKey(accessToken) {
+    try {
+        const response = await fetch(`${API_AUTH}/create-api-key`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${accessToken}`,
+            },
+            body: JSON.stringify({ name: "My API Key" }), 
+        });
 
-  try {
-    const response = await fetch(loginURL, {
-      method,
-      headers: {
-        "Content-Type": "application/json",
-        "X-Noroff-API-Key": "your-api-key-here", 
-      },
-      body,
-    });
+        if (!response.ok) {
+            throw new Error(`API Key request failed: ${response.statusText}`);
+        }
 
-    const result = await response.json();
+        const data = await response.json();
+        const apiKey = data.data.key;
+        storage.save("apiKey", apiKey);  
 
-    if (!response.ok) {
-      throw new Error(result.errors?.[0]?.message || "Login failed.");
+        console.log("API Key:", apiKey);
+    } catch (error) {
+        console.error("Error fetching API Key:", error);
     }
-
-    if (result.data) {
-      storage.save("profile", result.data.name);
-      storage.save("token", result.data.accessToken);
-      console.log("Token saved:", result.data.accessToken);
-      
-  
-      window.location.href = "/pages/index-profile.html";
-    } else {
-      throw new Error("No user data returned.");
-    }
-  } catch (error) {
-    console.error("Login Error:", error);
-    alert("Login failed: " + error.message);
-  }
 }
 
+export async function login(profile) {
+    const loginURL = API_AUTH + action; 
+    const body = JSON.stringify(profile);
+
+    try {
+        const response = await fetch(loginURL, {
+            method,
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body,
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+            throw new Error(result.errors?.[0]?.message || "Login failed.");
+        }
+
+        if (result.data) {
+            storage.save("profile", result.data.name);
+            storage.save("token", result.data.accessToken);
+            console.log("Token saved:", result.data.accessToken);
+
+            
+            await fetchApiKey(result.data.accessToken);
+
+       
+            window.location.href = "/pages/index-profile.html";
+        } else {
+            throw new Error("No user data returned.");
+        }
+    } catch (error) {
+        console.error("Login Error:", error);
+        alert("Login failed: " + error.message);
+    }
+}
