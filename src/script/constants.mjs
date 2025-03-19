@@ -5,7 +5,7 @@
 // Base API URL for Noroff API v2
 export const API_V2_BASE_URL = "https://v2.api.noroff.dev";
 
-
+export const API_BASE = "https://v2.api.noroff.dev";
 
 // Authentication Endpoints
 export const API_AUTH = `${API_V2_BASE_URL}/auth`;

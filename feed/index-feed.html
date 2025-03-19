@@ -14,9 +14,11 @@
     <link rel="stylesheet" href="/sharedResources/sharedCSS/stylesGeneral.css">
     <link rel="stylesheet" href="/sharedResources/sharedCSS/hamburgerMenu.css">
     <link rel="stylesheet" href="/sharedResources/sharedCSS/stylesFeedPage.css">
+    <link rel="stylesheet" href="/styles/feed-page.css">
 
     <script defer src="/sharedResources/sharedScript/hamburgerMenu.js"></script>
-    <script defer src="/feed/script/feedPageScript.js"></script>
+    <script type="module" src="/feed/script/feedPageScript.js"></script>
+
 
 
     <title>CapChat Home- Feed Page</title>
@@ -48,10 +50,10 @@
                 <i class="fa-solid fa-house" style="color: #ffff;"></i><a href="/feed/index-feed.html">Home</a>
             </div>
             <div class="link-item hamburger-icon">
-                <i class="fa-solid fa-user" style="color: #ffff;"></i><a href="/profile/index-profile.html">Profile</a>
+                <i class="fa-solid fa-user" style="color: #ffff;"></i><a href="/pages/index-profile.html">Profile</a>
             </div>
             <div class="link-item hamburger-icon">
-                <i class="fa-solid fa-pen-fancy" style="color: #ffff;"></i><a href="/feed/index-feed.html">Add a thought</a>
+                <i class="fa-solid fa-pen-fancy" style="color: #ffff;"></i><a href="/pages/add-a-thought.html">Add a thought</a>
             </div>
             <div class="link-item hamburger-icon">
                 <i class="fa-solid fa-magnifying-glass" style="color: #ffff;"></i><a href="/feed/index-feed.html">Search</a>
@@ -86,15 +88,33 @@
                 <div class="thoughts-form-container">
                     <form id="thoughtsForm">
                         <div class="add-thoughts-input-group">
-                            <label class="add-your-thoughts-title" for="thought"><h1>Add your thoughts:</h1></label>
+                            <label class="add-your-thoughts-title" for="thought"><h1>Add a quick thought:</h1></label>
                             <textarea id="thought" name="thought" placeholder="What's on your mind?" required></textarea>
                             <button class="submit-a-thought-header-button" type="submit">Submit A Thought!</button>
                         </div>
                     </form>
                 </div>
+                
+                
+                <div class="search-sort-container">
+                    <input type="text" id="searchInput" class="search-bar" placeholder="Search posts...">
+
+                    <select id="tagDropdown" class="tag-dropdown">
+                        <option value="">Filter by Tag</option>
+                        <option value="news">News</option>
+                        <option value="tech">Tech</option>
+                        <option value="funny">Funny</option>
+                        <option value="education">Education</option>
+                    </select>
+                    
+                </div>
             </div>
         </div>
+        
+  
 
+
+    
         <div class="feed-page-container">
             <div class="large-screen-nav-bar">
                 <div class="logo-container">
@@ -107,10 +127,10 @@
                             <i class="fa-solid fa-house" style="color: #553d00;"></i><a href="/feed/index-feed.html" class="large-nav-bar-links">Home</a>
                         </div>
                         <div class="link-item">
-                            <i class="fa-solid fa-user" style="color: #553d00;"></i><a href="/profile/index-profile.html" class="large-nav-bar-links">Profile</a>
+                            <i class="fa-solid fa-user" style="color: #553d00;"></i><a href="/pages/index-profile.html" class="large-nav-bar-links">Profile</a>
                         </div>
                         <div class="link-item">
-                            <i class="fa-solid fa-pen-fancy" style="color: #553d00;"></i><a href="/feed/index-feed.html" class="large-nav-bar-links">Add a thought</a>
+                            <i class="fa-solid fa-pen-fancy" style="color: #553d00;"></i><a href="/pages/add-a-thought.html" class="large-nav-bar-links">Add a thought</a>
                         </div>
                         <div class="link-item">
                             <i class="fa-solid fa-magnifying-glass" style="color: #553d00;"></i><a href="/feed/index-feed.html" class="large-nav-bar-links">Search</a>
@@ -125,112 +145,16 @@
                 </div>
             </div>
 
+
+
             <div class="main-feed-container">
 
-                <button class="sort" id="sort" type="submit">Sort</button>
-              
-
-                <div class="card">
-                    <div class="thumbnail">
-                        <img src="/sharedResources/sharedImages/capChatLogo.png" alt="Thumbnail">
-                    </div>
-                    <div class="content">
-                        <h1>This is what i'm thinking about:</h1>
-                        <p>...stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff and then stuff stuff stuff stuff stuff stuff.</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="thumbnail">
-                        <img src="/sharedResources/sharedImages/capChatLogo.png" alt="Thumbnail">
-                    </div>
-                    <div class="content">
-                        <h1>This is what i'm thinking about:</h1>
-                        <p>...stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff and then stuff stuff stuff stuff stuff stuff.</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="thumbnail">
-                        <img src="/sharedResources/sharedImages/capChatLogo.png" alt="Thumbnail">
-                    </div>
-                    <div class="content">
-                        <h1>This is what i'm thinking about:</h1>
-                        <p>...stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff and then stuff stuff stuff stuff stuff stuff.</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="thumbnail">
-                        <img src="/sharedResources/sharedImages/capChatLogo.png" alt="Thumbnail">
-                    </div>
-                    <div class="content">
-                        <h1>This is what i'm thinking about:</h1>
-                        <p>...stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff and then stuff stuff stuff stuff stuff stuff.</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="thumbnail">
-                        <img src="/sharedResources/sharedImages/capChatLogo.png" alt="Thumbnail">
-                    </div>
-                    <div class="content">
-                        <h1>This is what i'm thinking about:</h1>
-                        <p>...stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff and then stuff stuff stuff stuff stuff stuff.</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="thumbnail">
-                        <img src="/sharedResources/sharedImages/capChatLogo.png" alt="Thumbnail">
-                    </div>
-                    <div class="content">
-                        <h1>This is what i'm thinking about:</h1>
-                        <p>...stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff and then stuff stuff stuff stuff stuff stuff.</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="thumbnail">
-                        <img src="/sharedResources/sharedImages/capChatLogo.png" alt="Thumbnail">
-                    </div>
-                    <div class="content">
-                        <h1>This is what i'm thinking about:</h1>
-                        <p>...stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff and then stuff stuff stuff stuff stuff stuff.</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="thumbnail">
-                        <img src="/sharedResources/sharedImages/capChatLogo.png" alt="Thumbnail">
-                    </div>
-                    <div class="content">
-                        <h1>This is what i'm thinking about:</h1>
-                        <p>...stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff and then stuff stuff stuff stuff stuff stuff.</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="thumbnail">
-                        <img src="/sharedResources/sharedImages/capChatLogo.png" alt="Thumbnail">
-                    </div>
-                    <div class="content">
-                        <h1>This is what i'm thinking about:</h1>
-                        <p>...stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff and then stuff stuff stuff stuff stuff stuff.</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="thumbnail">
-                        <img src="/sharedResources/sharedImages/capChatLogo.png" alt="Thumbnail">
-                    </div>
-                    <div class="content">
-                        <h1>This is what i'm thinking about:</h1>
-                        <p>...stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff stuff and then stuff stuff stuff stuff stuff stuff.</p>
-                    </div>
-                </div>
-                
+                <button class="sort-button" id="sort" type="submit">Sort</button>
+                <div class="feed-posts-container"></div>
+                 
             </div>
+
+            
         </div>
       
 
@@ -238,7 +162,8 @@
 
 
 
-    </div>
+  
+   
 
     <footer class="footer-small-screen">
         <div class="footer-links-container">

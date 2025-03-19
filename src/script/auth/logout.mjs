@@ -5,24 +5,19 @@
 
 
 
-function logoutUser() {
-   
-    localStorage.removeItem("profile");
-    localStorage.removeItem("token");
-    localStorage.removeItem("apiKey");
-
-    
+export function logout() {
+    localStorage.clear(); 
+    console.log("User logged out. Redirecting...");
     window.location.href = "/index.html";
 }
 
-
 document.addEventListener("DOMContentLoaded", () => {
-    const logoutLinks = document.querySelectorAll(".logout-button");
+    const logoutButtons = document.querySelectorAll(".logout-button");
 
-    logoutLinks.forEach(link => {
-        link.addEventListener("click", (event) => {
-            event.preventDefault(); 
-            logoutUser();
+    logoutButtons.forEach(button => {
+        button.addEventListener("click", (event) => {
+            event.preventDefault();
+            logout();
         });
     });
 });
