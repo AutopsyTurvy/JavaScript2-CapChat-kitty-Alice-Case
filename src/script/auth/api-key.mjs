@@ -1,13 +1,27 @@
 
 
-// src/script/auth/api-key.mjs
 
+// src/script/auth/api-key.mjs
 
 
 
 import * as storage from "../../storage/index.mjs";
 import { API_AUTH } from "../constants.mjs";
 
+/**
+ * Requests and stores an API key for the authenticated/ registered user.
+ * 
+ * - Retrieves the stored authentication token.
+ * - Sends a POST request to the API to generate an API key.
+ * - Saves the API key in local storage for future authenticated requests, and other functions in the app/ site.
+ * - 
+ * 
+ * @async
+ * @returns {Promise<void>} Resolves when the API key is successfully stored, or logs an error if this request fails.
+ * 
+ * @example
+ * await getApiKey(); // Fetches and stores an API key for the current user:
+ */
 export async function getApiKey() {
     try {
         console.log("getApiKey() function called..."); 

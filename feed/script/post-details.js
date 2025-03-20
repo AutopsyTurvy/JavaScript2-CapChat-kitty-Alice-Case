@@ -8,10 +8,25 @@
 import { API_POSTS } from "../../src/script/constants.mjs";
 import * as storage from "../../src/storage/index.mjs";
 
+/**
+ * - Fetches the details of a specific post based on the ID found in the URL.
+ * 
+ * - Extracts the post ID from the URL parameters.
+ * - Retrieves authentication tokens.
+ * - Fetches post data including author, comments, and reactions.
+ * - Calls `renderPostDetails()` to display the fetched post.
+ * - Handles missing or incorrect post IDs with appropriate feedback.
+ * 
+ * @async
+ * @returns {Promise<void>} Resolves when the post details are successfully retrieved and displayed.
+ *
+ * @example
+ * fetchPostDetails();
+ */
 async function fetchPostDetails() {
     const postContainer = document.querySelector(".post-details-container");
 
-  
+    // Checks if the post container is present before attempting to fetch data
     if (!postContainer) {
         console.warn("No .post-details-container found. Exiting fetchPostDetails.");
         return;
@@ -20,6 +35,7 @@ async function fetchPostDetails() {
     try {
         console.log("Fetching post details...");
 
+        // Retrieves the post ID from the URL parameters
         const params = new URLSearchParams(window.location.search);
         const postId = params.get("id");
 
@@ -29,6 +45,7 @@ async function fetchPostDetails() {
             return;
         }
 
+        // Retrieves authentication tokens from local storage
         const token = storage.get("Token");
         const apiKey = storage.get("ApiKey");
 
@@ -39,6 +56,7 @@ async function fetchPostDetails() {
             return;
         }
 
+        // Fetches the post details from the API
         const response = await fetch(`${API_POSTS}/${postId}?_author=true&_comments=true&_reactions=true`, {
             method: "GET",
             headers: {
@@ -55,12 +73,36 @@ async function fetchPostDetails() {
         const result = await response.json();
         console.log("Post details retrieved:", result.data);
 
+        // Calls function to render post details onto the page
         renderPostDetails(result.data);
     } catch (error) {
         console.error("Error fetching post details:", error);
     }
 }
 
+/**
+ * Renders the details of a post onto the page.
+ *
+ * - Displays the post image, title, body, author name, and created date.
+ * - Shows the number of comments and reactions (Will add ability to comment a little later if there's time).
+ * - Includes a "Back to Feed" button so the user can easily return to feed page.
+ * - Handles missing or broken images by providing a default fallback.
+ *
+ * @param {Object} post - The post object retrieved from the API.
+ * @param {string} post.title - The title of the post.
+ * @param {string} post.body - The main content/body of the post.
+ * @param {Object} post.media - Media object containing the post image URL.
+ * @param {string} [post.media.url] - The URL of the post image.
+ * @param {Object} post.author - The author of the post.
+ * @param {string} [post.author.name] - The name of the author.
+ * @param {string} post.created - The creation date of the post.
+ * @param {Object} post._count - Object containing post stats.
+ * @param {number} [post._count.comments] - Number of comments on the post.
+ * @param {number} [post._count.reactions] - Number of reactions on the post.
+ *
+ * @example
+ * renderPostDetails(post);
+ */
 function renderPostDetails(post) {
     const postContainer = document.querySelector(".post-details-container");
 
@@ -69,6 +111,7 @@ function renderPostDetails(post) {
         return;
     }
 
+    // Handles missing post media and sets a default fallback image, as does the profile and feed page
     const postImage = post.media?.url && post.media.url !== "null" 
         ? post.media.url 
         : "/assets/defaultavatar.jpg";
@@ -80,6 +123,7 @@ function renderPostDetails(post) {
     const commentsCount = post._count?.comments || 0;
     const reactionsCount = post._count?.reactions || 0;
 
+    // Generates the post details layout
     postContainer.innerHTML = `
         <div class="post-card">
             <img src="${postImage}" alt="Post Image" class="post-image"
@@ -95,7 +139,21 @@ function renderPostDetails(post) {
     `;
 }
 
-
+/**
+ * Ensures that post details are fetched when the page loads.
+ *
+ * - Listens for `DOMContentLoaded` and runs `fetchPostDetails()` if the container exists.
+ *
+ * @listens DOMContentLoaded
+ *
+ * @example
+ * // Automatically runs when the page loads
+ * document.addEventListener("DOMContentLoaded", () => {
+ *     if (document.querySelector(".post-details-container")) {
+ *         fetchPostDetails();
+ *     }
+ * });
+ */
 document.addEventListener("DOMContentLoaded", () => {
     if (document.querySelector(".post-details-container")) {
         fetchPostDetails();

@@ -136,7 +136,33 @@
             </div>
 
 
-
+            <div id="edit-post-modal" class="modal" style="display: none;">
+                <div class="modal-content">
+                    <span class="close-button">&times;</span>
+                    <h2>Edit Your Post</h2>
+                    <form class="edit-post-form" id="editPostForm">
+                        <input type="hidden" id="editPostId" name="editPostId">  
+                        
+                        <label for="editTitle">Title</label>
+                        <input type="text" id="editTitle" name="title" required>
+                        
+                        <label for="editBody">Body (max 280 characters)</label>
+                        <textarea id="editBody" name="body" maxlength="280"></textarea>
+                        <small id="charCount">0 / 280 characters</small>
+                    
+                        <label for="editTags">Tags (comma-separated)</label>
+                        <input type="text" id="editTags" name="tags">
+                    
+                        <label for="editImageUrl">Image URL</label>
+                        <input type="text" id="editImageUrl" name="media">
+                    
+                        <button type="submit">Update Post</button>
+                        <button type="button" class="close-button">Cancel</button>
+                    </form>
+                </div>
+            </div>
+            
+            
 
            
 

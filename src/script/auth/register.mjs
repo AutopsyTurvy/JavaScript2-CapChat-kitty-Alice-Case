@@ -10,6 +10,18 @@ import { API_REGISTER, API_AUTH, API_PROFILES, API_LOGIN } from "../constants.mj
 import * as storage from "../../storage/index.mjs";
 import { getApiKey } from "./api-key.mjs"; 
 
+/**
+ * Logs in a user immediately after registration is complete:
+ *
+ * @async
+ * @param {string} email - The email address of the newly registered user- has to be a Noroff email.
+ * @param {string} password - The password of the user.
+ * @returns {Promise<string|null>} This promise returns the access token if successful.
+ *
+ * @example
+ * const token = await loginAfterRegistration("user@noroff.no", "securepassword");
+ * console.log(token); // "eyJhbGciOiJI..."
+ */
 async function loginAfterRegistration(email, password) {
     try {
         console.log("Logging in immediately after registration...");
@@ -43,6 +55,21 @@ async function loginAfterRegistration(email, password) {
     }
 }
 
+
+
+
+
+/**
+ * Fetches the user profile data from the API.
+ *
+ * @async
+ * @param {string} username - The username of the profile to retrieve.
+ * @returns {Promise<Object|null>} A promise that resolves to the user profile data if successful, otherwise null.
+ *
+ * @example
+ * const userProfile = await fetchUserProfile("JohnDoe");
+ * console.log(userProfile);
+ */
 export async function fetchUserProfile(username) {
     try {
         const apiKey = storage.get("ApiKey");
@@ -72,9 +99,38 @@ export async function fetchUserProfile(username) {
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
     const registerForm = document.getElementById("registerForm");
 
+
+
+
+
+
+
+
+   /**
+ * Handles the user registration form submission, sending the user data to the API.
+ * Automatically logs in the user after registration, retrieves an API key, and fetches the user profile.
+ *
+ * @async
+ * @param {Event} event - The form submission event.
+ * @returns {Promise<void>} A promise that resolves when the registration process completes.
+ *
+ * @example
+ * document.getElementById("registerForm").addEventListener("submit", registerUser);
+ */
     registerForm.addEventListener("submit", async (event) => {
         event.preventDefault();
 
@@ -96,6 +152,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
             console.log("Sending registration request...");
+
+            // Sends registration request to the API
             const response = await fetch(API_REGISTER, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -105,13 +163,16 @@ document.addEventListener("DOMContentLoaded", () => {
             const result = await response.json();
             console.log("Raw API Response:", result);
 
+
+
+            // Handls a possible failed registration
             if (!response.ok) {
                 throw new Error(result.errors?.[0]?.message || `Registration failed: ${response.status}`);
             }
 
             console.log("Registration successful:", result);
 
-         
+           // Attempts to log in automatically after registration is done
             const token = await loginAfterRegistration(email, password);
 
             if (!token) {
@@ -120,13 +181,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            
+             // Fetches API key for the user
             await getApiKey();
 
-          
+
+
+         // Retrieves and updates the user profile data
             const userProfile = await fetchUserProfile(result.data.name);
             console.log("Fetched Profile:", userProfile);
-
+        // Saves the updated profile data locally:
             const updatedProfile = {
                 name: userProfile?.name || result.data.name,
                 email: userProfile?.email || result.data.email,
@@ -137,6 +200,9 @@ document.addEventListener("DOMContentLoaded", () => {
             storage.save("Profile", updatedProfile);
             console.log("Updated Profile Saved:", updatedProfile);
 
+
+            // Alerts the user that their registration was successful and redirects them to their profile page
+            // where their information will be rendered in the inner html.
             alert("Registration successful! Redirecting to your profile...");
             window.location.href = "/pages/index-profile.html";
         } catch (error) {
