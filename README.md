@@ -101,7 +101,6 @@ Our Brief:
 I should first point out that the sign in and sign up pages have the same styles, so they will be found in the "sharedResources" folder.
 The same goes for the general styles in the feed and profile page, so these have also been placed in "sharedResources"-- I did this to avoid duplicate code, and hope it makes sense. If not in the folder corresponding to the page you seek, then you will find the code in shared resources.
 
-
 Social Media site that the user should be able to register to, log into, post onto-  they should be able to make a profile, edit and remove posts.
 
 
@@ -112,28 +111,42 @@ Social Media site that the user should be able to register to, log into, post on
 Should be able to register, first and foremost- this will create a profile for the user.
 Login should be able to do similar, but with a previously registered email and name etc.
 
+Both, upon success, send the user to the profile page where their profile information are displayed.
 
 
- 
+-- Profile Page --
 
--- Profile--
-
-The most interactive of the pages on this relatively simple site- here the user should be able to post a "thought", edit the thought they posted, remove it, sort the other posts on the page- 
+The most interactive of the pages on this relatively simple site- Should display the information that the user has put on their register form- here the user should be able to see the posts they made, edit the thought they posted, remove it etc.
 
 
+-- Feed page --
 
-
--- Profile page
-
+The page that shows the posts from other users and the posts from the user themselves. 
 Should display the information that the user has put on their register form, should display the posts they have made.
+The user can click on a post and see more details about it, such as comments and likes-- there will be added at a later date.
+There will be a sort and filter function on this page so that the user can go through the posts and look for specific ones via key words
+and titles, and a sort button so the posts can be fetched via their tags.
+At a future date maybe add a function so they can be fetched via date of creation, users the user follows, newest, oldest etc.
+
+
+
+
+-- Create a post page --
+
+This page should have a simple form that the user can fill in and will, when successful, alert the user, 
+and redirect them to the feed page so they can see the post they just made- posts will by default be shown in order of posting.
+
 
 
 ---
 
 
+
+
+
 ** Note **
 
-No Tech used so far- Pure CSS, HTML, and JavaScript- will update if this changes
+ Pure CSS, HTML, and JavaScript- will update if this changes-- modals used, but used sans React
 
 
 <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/HTML.svg" width="50" height="50"> <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/CSS.svg" width="50" height="50"> <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/JavaScript.svg" width="50" height="50"> <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/VSCode-Dark.svg" width="50" height="50">
@@ -176,7 +189,7 @@ Contact:
 
 
 Email me: 
-autopsyturvycoding@gmail.com
+kitty.letsbuzz@gmail.com
 
 <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Gmail-Dark.svg" width="50" height="50"> <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Discord.svg" width="50" height="50">
 
