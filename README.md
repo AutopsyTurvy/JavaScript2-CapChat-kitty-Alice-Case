@@ -19,6 +19,15 @@
 ## Link to Trello Board:
 ## https://trello.com/b/TImfNBdG/js2-social-media-client
 
+(Peer feedback given and responded to:
+"Only thing i wanna give u Feedback on is this
+I personally would have it over the cards
+But it’s completely up to you
+Cause then u can get 3 cards in each row"--
+
+In regards to the "Your Posts" header on the ptofile page- was done :) )
+
+
 
 This was our first project in the first year of our Studies-
 This was initially our introduction into design and CSS, then an exercise in stretching our JavaScript skills.
