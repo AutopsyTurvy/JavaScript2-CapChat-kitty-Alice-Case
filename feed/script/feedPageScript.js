@@ -1,18 +1,27 @@
 
 
-
-// This should prevent the thought form from submitting 
-
-
-
 import { API_POSTS } from "../../src/script/constants.mjs";
 import * as storage from "../../src/storage/index.mjs";
 
 let allPosts = []; 
 
+/**
+ * Fetches posts from the API and displays them in the feed- this will be the main feed page.
+ * 
+ * - Retrieves user authentication tokens.
+ * - Fetches posts with dates titles and images-- when seen in detail this will extend to who made the post, likes and comments etc.
+ * - Populates the main feed and filters.
+ * - Handles errors and redirects if authentication is missing or unsuccessful.
+ * 
+ * @async
+ * @returns {Promise<void>} Resolves when posts are successfully fetched and displayed.
+ *
+ * @example
+ * fetchAndDisplayPosts();
+ */
 async function fetchAndDisplayPosts() {
     try {
-        console.log("Fetching posts for feed...");
+        
 
         const token = storage.get("Token");
         const apiKey = storage.get("ApiKey");
@@ -38,9 +47,8 @@ async function fetchAndDisplayPosts() {
         }
 
         const result = await response.json();
-        console.log("Posts retrieved:", result.data);
+        
 
-       
         allPosts = result.data || [];
 
         if (allPosts.length === 0) {
@@ -55,6 +63,18 @@ async function fetchAndDisplayPosts() {
     }
 }
 
+/**
+ * Renders the list of posts onto the feed page in the proper div container.
+ *
+ * - Clears previous posts.
+ * - Creates post cards with title, body, image, and links.
+ * - Handles broken images by falling back to a default avatar- the same as the profile.
+ *
+ * @param {Array<Object>} posts - The list of posts to be displayed.
+ *
+ * @example
+ * renderPosts(allPosts);
+ */
 function renderPosts(posts) {
     const feedContainer = document.querySelector(".feed-posts-container");
 
@@ -88,7 +108,17 @@ function renderPosts(posts) {
     });
 }
 
-
+/**
+ * Extracts unique tags from posts and populates the filter dropdown with them so they can be looked for specifically
+ *
+ * - Filters out empty tags and adds them to the dropdown.
+ * -  
+ *
+ * @param {Array<Object>} posts - The list of posts containing any tags.
+ *
+ * @example
+ * extractAndPopulateTags(allPosts);
+ */
 function extractAndPopulateTags(posts) {
     const tagDropdown = document.getElementById("tagDropdown");
 
@@ -97,18 +127,14 @@ function extractAndPopulateTags(posts) {
         return;
     }
 
-   
     let tags = posts
         .filter(post => Array.isArray(post.tags) && post.tags.length > 0) 
         .flatMap(post => post.tags); 
 
-    
     let uniqueTags = [...new Set(tags)];
 
-  
     tagDropdown.innerHTML = `<option value="">Filter by Tag</option>`;
 
-    
     uniqueTags.forEach(tag => {
         const option = document.createElement("option");
         option.value = tag;
@@ -116,10 +142,18 @@ function extractAndPopulateTags(posts) {
         tagDropdown.appendChild(option);
     });
 
-    console.log("Available tags:", uniqueTags);
+    
 }
 
-
+/**
+ * Filters posts based on the user's search input.
+ *
+ * - Searches both the title and body of posts to display the relevant ones
+ * - Updates the displayed posts based on the search term.
+ *
+ * @example
+ * filterPosts();
+ */
 function filterPosts() {
     if (allPosts.length === 0) {
         console.warn("No posts available yet. Try again after posts load.");
@@ -135,13 +169,23 @@ function filterPosts() {
     const query = searchInput.value.toLowerCase();
 
     let filteredPosts = allPosts.filter(post =>
-        post.title.toLowerCase().includes(query) || post.body.toLowerCase().includes(query)
+        (post.title && post.title.toLowerCase().includes(query)) ||
+        (post.body && post.body.toLowerCase().includes(query)) 
     );
 
     renderPosts(filteredPosts);
 }
 
 
+/**
+ * Filters posts based on the selected tag from the dropdown.
+ *
+ * - Matches the selected tag with post tags.
+ * - Updates the displayed posts accordingly.
+ *
+ * @example
+ * filterByTag();
+ */
 function filterByTag() {
     if (allPosts.length === 0) {
         console.warn("No posts available yet. Try again after posts load.");
@@ -168,7 +212,14 @@ function filterByTag() {
     renderPosts(filteredPosts);
 }
 
-
+/**
+ * Initializes event listeners and fetches posts when the page loads.
+ *
+ * - Listens for changes in search input and tag dropdown.
+ * - Calls `fetchAndDisplayPosts()` to load the feed.
+ *
+ * @listens DOMContentLoaded
+ */
 document.addEventListener("DOMContentLoaded", async () => {
     await fetchAndDisplayPosts(); 
 
@@ -187,7 +238,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 });
 
-
-
+/**
+ * Ensures posts are fetched again when the page reloads.
+ */
 document.addEventListener("DOMContentLoaded", fetchAndDisplayPosts);
-

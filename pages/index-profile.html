@@ -20,7 +20,7 @@
     
 
 
-    <title>CapChat Profile Page</title>
+    <title>CapChat - Profile Page</title>
 
 </head>
 
@@ -49,19 +49,13 @@
                 <i class="fa-solid fa-house" style="color: #ffff;"></i><a href="/feed/index-feed.html">Home</a>
             </div>
             <div class="link-item hamburger-icon">
-                <i class="fa-solid fa-user" style="color: #ffff;"></i><a href="/profile/index-profile.html">Profile</a>
+                <i class="fa-solid fa-user" style="color: #ffff;"></i><a href="/pages/index-profile.html">Profile</a>
             </div>
             <div class="link-item hamburger-icon">
                 <i class="fa-solid fa-pen-fancy" style="color: #ffff;"></i><a href="/pages/add-a-thought.html">Add a thought</a>
             </div>
             <div class="link-item hamburger-icon">
-                <i class="fa-solid fa-magnifying-glass" style="color: #ffff;"></i><a href="/feed/index-feed.html">Search</a>
-            </div>
-            <div class="link-item hamburger-icon">
-                <i class="fa-solid fa-earth-europe" style="color: #ffff;"></i><a href="/feed/index-feed.html">Explore</a>
-            </div>
-            <div class="link-item hamburger-icon">
-                <i class="fa-solid fa-right-to-bracket" style="color: #ffff;"></i><a href="/index.html">Log out</a>
+                <i class="fa-solid fa-right-to-bracket" style="color: #ffff;"></i><a href="/index.html">Log Out</a>
             </div>
         </div>
 
@@ -108,20 +102,14 @@
                             <i class="fa-solid fa-house" style="color: #553d00;"></i><a href="/feed/index-feed.html" class="large-nav-bar-links">Home</a>
                         </div>
                         <div class="link-item">
-                            <i class="fa-solid fa-user" style="color: #553d00;"></i><a href="/profile/index-profile.html" class="large-nav-bar-links">Profile</a>
+                            <i class="fa-solid fa-user" style="color: #553d00;"></i><a href="/pages/index-profile.html" class="large-nav-bar-links">Profile</a>
                         </div>
                         <div class="link-item">
                             <i class="fa-solid fa-pen-fancy" style="color: #553d00;"></i><a href="/pages/add-a-thought.html" class="large-nav-bar-links">Add a thought</a>
                         </div>
                         <div class="link-item">
-                            <i class="fa-solid fa-magnifying-glass" style="color: #553d00;"></i><a href="/feed/index-feed.html" class="large-nav-bar-links">Search</a>
-                        </div>
-                        <div class="link-item">
-                            <i class="fa-solid fa-earth-europe" style="color: #553d00;"></i><a href="/feed/index-feed.html" class="large-nav-bar-links">Explore</a>
-                        </div>
-                        <div class="link-item">
                             <i class="fa-solid fa-right-to-bracket" style="color: #553d00;"></i>
-                            <a href="#" class="logout-button">Log Out</a>
+                            <a href="#" class="logout-button"> Log Out</a>
                         </div>
                         
                     </div>
@@ -132,11 +120,39 @@
 
             <div class="main-feed-container">
                 <div id="profile-section" class="profile-container"></div> 
+
+                <h2 class='user-posts-header'>Your Posts:</h2>
                 <div id="user-posts-container" class="user-posts"></div> 
             </div>
 
 
-
+            <div id="edit-post-modal" class="modal" style="display: none;">
+                <div class="modal-content">
+                    <span class="close-button">&times;</span>
+                    <h2>Edit Your Post</h2>
+                    <form class="edit-post-form" id="editPostForm">
+                        <input type="hidden" id="editPostId" name="editPostId">  
+                        
+                        <label for="editTitle">Title</label>
+                        <input type="text" id="editTitle" name="title" required>
+                        
+                        <label for="editBody">Body (max 280 characters)</label>
+                        <textarea id="editBody" name="body" maxlength="280"></textarea>
+                        <small id="charCount">0 / 280 characters</small>
+                    
+                        <label for="editTags">Tags (comma-separated)</label>
+                        <input type="text" id="editTags" name="tags">
+                    
+                        <label for="editImageUrl">Image URL</label>
+                        <input type="text" id="editImageUrl" name="media">
+                    
+                        <button type="submit">Update Post</button>
+                        <button type="button" class="close-button">Cancel</button>
+                    </form>
+                </div>
+            </div>
+            
+            
 
            
 
@@ -216,6 +232,7 @@
   
     <script defer src="/sharedResources/sharedScript/hamburgerMenu.js"></script>
     <script type="module" defer src="/src/script/profileScript.js"></script>
+    <script type="module" src="/feed/script/quick-thought.js"></script>
 
 
     
