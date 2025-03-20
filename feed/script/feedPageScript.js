@@ -169,11 +169,13 @@ function filterPosts() {
     const query = searchInput.value.toLowerCase();
 
     let filteredPosts = allPosts.filter(post =>
-        post.title.toLowerCase().includes(query) || post.body.toLowerCase().includes(query)
+        (post.title && post.title.toLowerCase().includes(query)) ||
+        (post.body && post.body.toLowerCase().includes(query)) 
     );
 
     renderPosts(filteredPosts);
 }
+
 
 /**
  * Filters posts based on the selected tag from the dropdown.
