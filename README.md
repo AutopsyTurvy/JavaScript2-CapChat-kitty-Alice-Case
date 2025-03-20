@@ -9,7 +9,16 @@
 
 ---
 
+
+
+
+
+
 # JavaScript 2, year 2- 
+
+## Link to Trello Board:
+## https://trello.com/b/TImfNBdG/js2-social-media-client
+
 
 This was our first project in the first year of our Studies-
 This was initially our introduction into design and CSS, then an exercise in stretching our JavaScript skills.
