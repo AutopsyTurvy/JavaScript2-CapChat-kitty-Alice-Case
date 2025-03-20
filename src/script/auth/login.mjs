@@ -7,7 +7,7 @@
 
 
 
-console.log("login.mjs loaded and executed");
+
 
 import * as storage from "../../storage/index.mjs"; 
 import { getApiKey } from "./api-key.mjs";
@@ -25,7 +25,7 @@ const API_DEFAULT_BANNER = "https://images.unsplash.com/photo-1579547945413-497e
  * @listens DOMContentLoaded - Ensures the login form is interactive after the DOM has loaded.
  */
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("DOM Loaded. Adding login event listener...");
+   
 
     const loginForm = document.getElementById("loginForm");
     if (!loginForm) {
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
      */
     loginForm.addEventListener("submit", async (event) => {
         event.preventDefault();
-        console.log("Login form submitted!");
+        
 
         const emailInput = document.getElementById("email");
         const passwordInput = document.getElementById("password");
@@ -69,10 +69,10 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        console.log(`Attempting login with email: ${email}`);
+        
 
         try {
-            console.log(`Logging in with URL: ${API_LOGIN}`);
+            
 
             // Sends a login request to API
             const response = await fetch(API_LOGIN, {
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             const result = await response.json();
-            console.log("Login API Response:", result); 
+            
 
             // Handles possible authentication failure
             if (!response.ok) {
@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
             };
 
             storage.save("Profile", updatedProfile);
-            console.log("Profile saved:", updatedProfile); 
+            
 
             // Fetches API key if there is not one already stored
             if (!storage.get("ApiKey")) {
@@ -119,14 +119,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             // redirects to the profile page and displays the user's info in much the same way as registration does:
-            console.log("Login successful! Redirecting...");
+           
             window.location.href = "/pages/index-profile.html";
 
 
 
             // catch error- just in case!
         } catch (error) {
-            console.error("Login failed:", error);
             alert(`Login failed: ${error.message}`); 
         }
     });

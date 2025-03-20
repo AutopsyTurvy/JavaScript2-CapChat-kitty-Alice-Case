@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    console.log("Quick Thought form found and ready.");
+   
 
     /**
      * Handles the Quick Thought submission.
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
      */
     thoughtForm.addEventListener("submit", async (event) => {
         event.preventDefault();
-        console.log("Submitting quick thought...");
+       
 
         // Retrieve authentication tokens
         const token = storage.get("Token");
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
             tags: ["quick-thought"], // Default tag
         };
 
-        console.log("Final Quick Thought Data:", JSON.stringify(quickThought, null, 2));
+        
 
         try {
             const response = await fetch(API_POSTS, {
@@ -96,14 +96,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 body: JSON.stringify(quickThought),
             });
 
-            console.log("Response Status:", response.status);
+      
             if (!response.ok) {
                 const errorText = await response.text();
                 throw new Error(`Failed to submit quick thought: ${response.statusText} - ${errorText}`);
             }
 
             const result = await response.json();
-            console.log("Quick Thought posted successfully!", result.data);
+           
 
             alert("Your Quick Thought has been shared!");
             

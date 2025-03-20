@@ -140,3 +140,8 @@
 }
 
 
+.user-posts-header {
+    align-self: center;
+    text-align: center;
+    width: 100%; 
+}

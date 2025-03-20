@@ -24,7 +24,7 @@ import { getApiKey } from "./api-key.mjs";
  */
 async function loginAfterRegistration(email, password) {
     try {
-        console.log("Logging in immediately after registration...");
+        
         
         const response = await fetch(`${API_AUTH}/login`, {
             method: "POST",
@@ -33,7 +33,7 @@ async function loginAfterRegistration(email, password) {
         });
 
         const result = await response.json();
-        console.log("Login API Response:", result);
+        
 
         if (!response.ok) {
             throw new Error(result.errors?.[0]?.message || "Login failed.");
@@ -45,7 +45,7 @@ async function loginAfterRegistration(email, password) {
             throw new Error("No access token received after login.");
         }
 
-        console.log("Access Token Received:", accessToken);
+        
         storage.save("Token", accessToken);
 
         return accessToken;
@@ -79,7 +79,7 @@ export async function fetchUserProfile(username) {
             throw new Error("No token found. User might not be authenticated.");
         }
 
-        const response = await fetch(`${API_PROFILES}/${username}`, {
+        const response = await fetch(`${API_PROFILES}/${username}?_avatar=true&_banner=true`, {  
             method: "GET",
             headers: {
                 "Authorization": `Bearer ${token}`,
@@ -92,7 +92,8 @@ export async function fetchUserProfile(username) {
             throw new Error("Failed to fetch user profile.");
         }
 
-        return await response.json();
+        const userData = await response.json();
+        return userData.data;  
     } catch (error) {
         console.error("Error fetching user profile:", error);
         return null;
@@ -147,11 +148,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const payload = { name, email, password };
 
-        if (avatarUrl) payload.avatar = { url: avatarUrl, alt: "User avatar" };
-        if (bannerUrl) payload.banner = { url: bannerUrl, alt: "User banner" };
+if (avatarUrl) payload.avatar = { url: avatarUrl };
+if (bannerUrl) payload.banner = { url: bannerUrl };
+
 
         try {
-            console.log("Sending registration request...");
+            
 
             // Sends registration request to the API
             const response = await fetch(API_REGISTER, {
@@ -161,7 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             const result = await response.json();
-            console.log("Raw API Response:", result);
+            
 
 
 
@@ -170,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 throw new Error(result.errors?.[0]?.message || `Registration failed: ${response.status}`);
             }
 
-            console.log("Registration successful:", result);
+           
 
            // Attempts to log in automatically after registration is done
             const token = await loginAfterRegistration(email, password);
@@ -188,17 +190,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
          // Retrieves and updates the user profile data
             const userProfile = await fetchUserProfile(result.data.name);
-            console.log("Fetched Profile:", userProfile);
+           
         // Saves the updated profile data locally:
-            const updatedProfile = {
-                name: userProfile?.name || result.data.name,
-                email: userProfile?.email || result.data.email,
-                avatar: userProfile?.avatar?.url || "/assets/defaultavatar.jpg",
-                banner: userProfile?.banner?.url || "/assets/defaultbanner.jpg",
-            };
+        const updatedProfile = {
+            name: userProfile?.name || result.data.name,
+            email: userProfile?.email || result.data.email,
+            avatar: userProfile?.avatar?.url && userProfile.avatar.url !== "null" ? userProfile.avatar.url : "/assets/defaultavatar.jpg",
+            banner: userProfile?.banner?.url && userProfile.banner.url !== "null" ? userProfile.banner.url : "/assets/defaultbanner.jpg",
+        };
+        
 
             storage.save("Profile", updatedProfile);
-            console.log("Updated Profile Saved:", updatedProfile);
+            
 
 
             // Alerts the user that their registration was successful and redirects them to their profile page

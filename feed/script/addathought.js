@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    console.log("Found detailed thoughts form.");
+  
 
     /**
      * Handles the submission of the "Detailed Thoughts" form.
@@ -50,13 +50,13 @@ document.addEventListener("DOMContentLoaded", () => {
      */
     form.addEventListener("submit", async (event) => {
         event.preventDefault();
-        console.log("Submitting new post...");
+      
 
         // Retrieves and formats the form data
         const formData = new FormData(event.target);
         let postData = Object.fromEntries(formData.entries());
 
-        console.log("Raw form data collected:", [...formData.entries()]);
+        
 
         // Validates the title
         if (!postData.title.trim()) {
@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
         delete postData.thought;
         delete postData.imageUrl;
 
-        console.log("Final postData before sending:", JSON.stringify(postData, null, 2));
+        
 
         // Retrieves authentication tokens
         const token = storage.get("Token");
@@ -117,14 +117,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 body: JSON.stringify(postData),
             });
 
-            console.log("Response status:", response.status);
+         
             if (!response.ok) {
                 const errorText = await response.text();
                 throw new Error(`Failed to create post: ${response.statusText} - ${errorText}`);
             }
 
             const result = await response.json();
-            console.log("Post created successfully:", result.data);
+            
 
 
 

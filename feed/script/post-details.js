@@ -33,7 +33,7 @@ async function fetchPostDetails() {
     }
 
     try {
-        console.log("Fetching post details...");
+        
 
         // Retrieves the post ID from the URL parameters
         const params = new URLSearchParams(window.location.search);
@@ -71,7 +71,7 @@ async function fetchPostDetails() {
         }
 
         const result = await response.json();
-        console.log("Post details retrieved:", result.data);
+        
 
         // Calls function to render post details onto the page
         renderPostDetails(result.data);

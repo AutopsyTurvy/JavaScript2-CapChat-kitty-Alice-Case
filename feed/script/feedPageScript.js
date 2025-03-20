@@ -21,7 +21,7 @@ let allPosts = [];
  */
 async function fetchAndDisplayPosts() {
     try {
-        console.log("Fetching posts for feed...");
+        
 
         const token = storage.get("Token");
         const apiKey = storage.get("ApiKey");
@@ -47,7 +47,7 @@ async function fetchAndDisplayPosts() {
         }
 
         const result = await response.json();
-        console.log("Posts retrieved:", result.data);
+        
 
         allPosts = result.data || [];
 
@@ -142,7 +142,7 @@ function extractAndPopulateTags(posts) {
         tagDropdown.appendChild(option);
     });
 
-    console.log("Available tags:", uniqueTags);
+    
 }
 
 /**

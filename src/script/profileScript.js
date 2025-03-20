@@ -21,7 +21,7 @@ import * as storage from "../storage/index.mjs";
  * @listens DOMContentLoaded - Ensures the profile loads only when the DOM is fully ready for it.
  */
 document.addEventListener("DOMContentLoaded", async () => {
-    console.log("Loading your profile...");
+    
 
     const profileSection = document.getElementById("profile-section");
     const postsContainer = document.getElementById("user-posts-container");
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", async () => {
  * fetchUserPosts("Usernumber2", document.getElementById("user-posts-container"));
  */
 async function fetchUserPosts(username, postsContainer) {
-    console.log(`Fetching posts for user: ${username}`);
+    
 
     const token = storage.get("Token");
     const apiKey = storage.get("ApiKey");
@@ -106,7 +106,7 @@ async function fetchUserPosts(username, postsContainer) {
         const allPosts = result.data || [];
         const userPosts = allPosts.filter(post => post.author?.name === username);
 
-        console.log("User posts retrieved:", userPosts);
+     
         renderUserPosts(userPosts, postsContainer);
     } catch (error) {
         console.error("Error fetching user posts:", error);
@@ -134,12 +134,15 @@ async function fetchUserPosts(username, postsContainer) {
  * renderUserPosts(userPosts, document.getElementById("user-posts-container"));
  */
 function renderUserPosts(posts, container) {
-    container.innerHTML = "<h2 class='user-posts-header'>Your Posts</h2>";
+    
+    container.innerHTML = "<h2 class='user-posts-header'></h2>";
 
     if (posts.length === 0) {
+       
         container.innerHTML += "<p>No posts found.</p>";
         return;
     }
+
 
     posts.forEach(post => {
         const postElement = document.createElement("div");
@@ -168,7 +171,7 @@ function renderUserPosts(posts, container) {
         container.appendChild(postElement);
     });
 
-    // Attaches event listeners to edit buttons- (edit button calls the edit modal.)
+    // Attach event listeners to edit and delete buttons
     document.querySelectorAll(".edit-post-button").forEach(button => {
         button.addEventListener("click", (event) => {
             const postId = event.target.dataset.id;
@@ -176,7 +179,6 @@ function renderUserPosts(posts, container) {
         });
     });
 
-    // Attach event listeners to delete buttons
     document.querySelectorAll(".delete-post-button").forEach(button => {
         button.addEventListener("click", (event) => {
             const postId = event.target.dataset.id;
@@ -184,6 +186,7 @@ function renderUserPosts(posts, container) {
         });
     });
 }
+
 
 
 
@@ -209,7 +212,7 @@ function renderUserPosts(posts, container) {
  * openEditForm("2468"); // Opens the edit form for post with ID 2468
  */
 function openEditForm(postId) {
-    console.log(`Editing post: ${postId}`);
+    
 
     const token = storage.get("Token");
     const apiKey = storage.get("ApiKey");
@@ -236,7 +239,7 @@ function openEditForm(postId) {
     })
     .then(responseData => {
         const post = responseData.data;
-        console.log("Populating edit modal with post data:", post);
+      
 
         document.getElementById("editPostId").value = post.id || "";
         document.getElementById("editTitle").value = post.title || "";
@@ -422,7 +425,7 @@ document.getElementById("editPostForm")?.addEventListener("submit", async (event
             body: JSON.stringify(updatedPost),
         });
 
-        console.log("API Response Status:", response.status);
+        
 
         // Handle response errors in case the update fails
         if (!response.ok) {
@@ -430,7 +433,7 @@ document.getElementById("editPostForm")?.addEventListener("submit", async (event
             throw new Error(`Failed to update post: ${errorText}`);
         }
 
-        console.log("Post updated successfully!");
+   
         alert("Post updated successfully!");
 
         // Closees the modal and refreshes the posts list so the user can see an ychanges they made
